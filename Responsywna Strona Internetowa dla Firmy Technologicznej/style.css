@@ -21,3 +21,22 @@
     max-height: 7%;
     max-width: 7%;
 }
+.banner-content img{
+    height: 60vh;
+    width: 100%;
+}
+.footer{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #f1f1f1; /* kolor tła, można dostosować */
+    bottom: 0;
+    width: 100%;
+}
+.spolecznosci{
+    display: flex;
+    flex-direction: row;
+}

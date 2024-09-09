@@ -51,29 +51,26 @@ nav {
     padding: 20px;
     justify-items: center;
 }
-
 .team-member {
     text-align: center;
 }
-
+.team-member:hover {
+    transform: scale(1.1);
+}
 .team-member img {
     border-radius: 10px;
     width: 100px;
     height: 100px;
 }
-
 .team-member p {
     margin-top: 10px;
     font-weight: bold;
 }
-
-/* Responsive behavior for smaller screens */
 @media only screen and (max-width: 768px) {
     .team-grid {
         grid-template-columns: 1fr 1fr;
     }
 }
-
 @media only screen and (max-width: 480px) {
     .team-grid {
         grid-template-columns: 1fr;

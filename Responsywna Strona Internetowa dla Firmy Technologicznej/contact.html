@@ -21,5 +21,17 @@
             </nav>
         </div>
     </header>
+    <form class="formularz_kontaktowy">
+        <input type=text name="imie" placeholder="imię" id="imie" class="imie"></input>
+        <input type=text name="nazwisko" placeholder="nazwisko" id="nazwisko" class="nazwisko"></input>
+        <input type=email name="email" placeholder="adres e-mail" id="email" class="email"></input>
+        <input type="text" name="temat-wiadomosci" placeholder="temat-wiadomosci" id="temat" class="temat"></input>
+        <textarea type=text name="wiadomosc" placeholder="treść wiadomości" id="wiadomosc" class="wiadomosc"></textarea>
+        <input type=hidden name="id" id="id" class="id" value='contactInfo'></input>
+        <input type=hidden name="option" id="option" class="option" value='sendMail'></input>
+
+        <button class="kontakt_button" type="submit">Wyślij</button>
+        <button class="kontakt_button" type="reset">Resetuj</button>
+    </form>
 </body>
 </html>

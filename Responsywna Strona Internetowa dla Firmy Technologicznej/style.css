@@ -13,11 +13,30 @@
     margin: 0;
     padding: 0;
 }
-.nav-links a{
+.menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.menu img {
+    height: 10vh;
+    width: 20%;
+    margin-bottom: 10px;
+}
+nav {
+    display: flex;
+    justify-content: center;
+}
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+.nav-links a {
     text-decoration: none;
     color: black;
 }
-.nav-links a:hover{
+.nav-links a:hover {
     font-size: large;
     text-decoration: none;
     color: blue;
@@ -37,7 +56,7 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    background-color: #f1f1f1; /* kolor tła, można dostosować */
+    background-color: #f1f1f1;
     bottom: 0;
     width: 98.8vw;
 }
@@ -53,14 +72,4 @@
 .spolecznosci a:hover{
     color: blue;
     transform: scale(1.2);
-}
-.menu{
-    display: block;
-}
-.menu img{
-    display: flex;
-    margin-left: 40%;
-    margin-right: 40%;
-    height: 10vh;
-    width: 20%;
 }

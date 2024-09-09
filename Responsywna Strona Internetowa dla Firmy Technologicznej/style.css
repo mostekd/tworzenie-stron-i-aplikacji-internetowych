@@ -15,6 +15,7 @@
 }
 .nav-links a{
     text-decoration: none;
+    color: black;
 }
 .nav-links a:hover{
     text-decoration: none;
@@ -42,6 +43,15 @@
 .spolecznosci{
     display: flex;
     flex-direction: row;
+}
+.spolecznosci a{
+    color: black;
+    padding: 4px;
+    text-decoration: none;
+}
+.spolecznosci a:hover{
+    color: blue;
+    transform: scale(1.2);
 }
 .menu{
     display: block;

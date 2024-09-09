@@ -16,3 +16,8 @@
 .hamburger-menu{
     display: none;
 }
+.zespol img{
+    border-radius: 10px;
+    max-height: 7%;
+    max-width: 7%;
+}

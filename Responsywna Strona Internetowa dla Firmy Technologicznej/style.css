@@ -43,6 +43,9 @@
     display: flex;
     flex-direction: row;
 }
+.menu{
+    display: block;
+}
 .menu img{
     height: 10vh;
     width: 35vh;

@@ -18,6 +18,7 @@
     color: black;
 }
 .nav-links a:hover{
+    font-size: large;
     text-decoration: none;
     color: blue;
 }

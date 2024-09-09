@@ -1,6 +1,18 @@
-@media only screen and (max-width: 768px) {
-
+@media only screen and (min-width: 0) and (max-width: 768px) {
+    .hamburger-menu{
+        display: flex;
+        justify-content: center;
+    }
 }
-@media only screen and (max-width: 1024px) {
-
+@media only screen and (min-width: 769) and (max-width: 1024px) {
+    .hamburger-menu{
+        display: none;
+    }
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+.hamburger-menu{
+    display: none;
 }

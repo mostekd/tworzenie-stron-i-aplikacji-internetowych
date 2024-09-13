@@ -100,3 +100,8 @@ nav {
     color: blue;
     transform: scale(1.2);
 }
+.service{
+    display: flex;
+    justify-content: left;
+    padding: 10px;
+}

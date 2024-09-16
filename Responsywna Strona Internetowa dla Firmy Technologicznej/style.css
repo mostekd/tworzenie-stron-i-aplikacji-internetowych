@@ -110,7 +110,6 @@ nav {
 }
 .service{
     display: flex;
-    align-self: flex-end;
-    justify-content: flex-end;
-    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }

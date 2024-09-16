@@ -1,19 +1,15 @@
 <?php
-// Dane do połączenia z bazą danych
 $host = 'localhost';
 $user = 'root';
 $password = '';
 $dbname = 'wers';
 
-// Nawiązanie połączenia z bazą danych
 $conn = new mysqli($host, $user, $password, $dbname);
 
-// Sprawdzenie połączenia
 if ($conn->connect_error) {
     die("Połączenie nieudane: " . $conn->connect_error);
 }
 
-// Funkcja do dodawania produktów z formularza
 if (isset($_POST['nazwa'], $_POST['cena'], $_POST['opis'])) {
     $nazwa = $conn->real_escape_string($_POST['nazwa']);
     $cena = (float)$_POST['cena'];
@@ -29,7 +25,6 @@ if (isset($_POST['nazwa'], $_POST['cena'], $_POST['opis'])) {
 }
 ?>
 
-<!-- Formularz do dodawania nowych produktów -->
 <form method="POST" action="">
     <label for="nazwa">Nazwa produktu:</label><br>
     <input type="text" id="nazwa" name="nazwa" required><br>
@@ -41,7 +36,6 @@ if (isset($_POST['nazwa'], $_POST['cena'], $_POST['opis'])) {
 </form>
 
 <?php
-// Pobieranie i wyświetlanie danych z tabeli "produkty"
 $sql_select = "SELECT id, nazwa, cena, opis FROM produkty";
 $result = $conn->query($sql_select);
 
@@ -54,7 +48,6 @@ if ($result->num_rows > 0) {
                 <th>Cena</th>
                 <th>Opis</th>
             </tr>";
-    // Wyświetlanie danych w wierszach
     while ($row = $result->fetch_assoc()) {
         echo "<tr>
                 <td>" . $row['id'] . "</td>
@@ -68,6 +61,5 @@ if ($result->num_rows > 0) {
     echo "Brak produktów w bazie danych.";
 }
 
-// Zamknięcie połączenia
 $conn->close();
 ?>

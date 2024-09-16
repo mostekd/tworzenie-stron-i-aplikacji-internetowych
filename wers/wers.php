@@ -13,14 +13,6 @@ if ($conn->connect_error) {
     die("Połączenie nieudane: " . $conn->connect_error);
 }
 
-// Tworzenie tabeli "produkty"
-$sql = "CREATE TABLE IF NOT EXISTS produkty (
-    id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    nazwa VARCHAR(50) NOT NULL,
-    cena DECIMAL(10, 2) NOT NULL,
-    opis TEXT
-)";
-
 // Funkcja do dodawania produktów z formularza
 if (isset($_POST['nazwa'], $_POST['cena'], $_POST['opis'])) {
     $nazwa = $conn->real_escape_string($_POST['nazwa']);

@@ -124,3 +124,32 @@ nav {
     color: blue;
     transform: scale(1.1);
 }
+.formularz_kontaktowy{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.form{
+    padding: 5px;
+    border-radius: 10px;
+    border-color: blue;
+}
+.wiadomosc{
+    padding: 10px;
+    border-radius: 10px;
+    border-color: blue;
+    min-width: 40vw;
+    min-height: 40vh;
+}
+.kontakt_button{
+    padding: 5px;
+    border-radius: 10px;
+    border-color: blue;
+    min-width: 80px;
+}
+.kontakt_button:hover{
+    transform: scale(1.1);
+}

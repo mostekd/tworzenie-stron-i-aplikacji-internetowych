@@ -55,6 +55,7 @@ nav {
     text-align: center;
 }
 .team-member:hover {
+    color: blue;
     transform: scale(1.1);
 }
 .team-member img {
@@ -118,4 +119,8 @@ nav {
     border-radius: 15px;
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
     text-align: center;
+}
+.service:hover{
+    color: blue;
+    transform: scale(1.1);
 }

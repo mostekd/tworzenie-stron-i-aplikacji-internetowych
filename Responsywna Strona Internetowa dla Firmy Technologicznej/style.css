@@ -154,3 +154,38 @@ nav {
 .kontakt_button:hover{
     transform: scale(1.1);
 }
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+.service-tile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 15px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.service-tile:hover {
+    color: blue;
+    transform: scale(1.1);
+}
+
+@media only screen and (max-width: 768px) {
+    .services-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,9 +1,8 @@
-create database if not exists todo;
-use todo;
+CREATE DATABASE IF NOT EXISTS todo;
+USE todo;
 
-create table todo_tasks (
-    id_todo int primary key auto_increment,
-    task_name varchar(255) not null,
-    task_description text not null,
-    task_deadline datetime
+CREATE TABLE IF NOT EXISTS todo_tasks (
+    id_todo INT PRIMARY KEY AUTO_INCREMENT,
+    task TEXT NOT NULL, 
+    task_deadline DATETIME
 );

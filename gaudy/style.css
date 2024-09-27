@@ -91,7 +91,7 @@ button:hover {
 }
 
 .complete-btn {
-    color: blue;  /* Zmieniony kolor na niebieski */
+    color: green;
 }
 
 .delete-btn {
@@ -99,7 +99,7 @@ button:hover {
 }
 
 .edit_btn {
-    color: orange;
+    color: blue;
 }
 
 .clear-btn {

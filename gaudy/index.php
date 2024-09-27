@@ -26,7 +26,7 @@
         </ul>
 
         <p>You have 4 pending tasks</p>
-        <button class="clear-btn">Clear All<i class="fa-solid fa-trash-can"></i></button>
+        <button class="clear-btn">Clear All <i class="fa-solid fa-trash-can"></></button>
     </div>
 </body>
 </html>

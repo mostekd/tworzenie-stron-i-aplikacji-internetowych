@@ -22,17 +22,21 @@ h1 {
 }
 
 form {
-    display: flex;
     margin-bottom: 20px;
 }
 
+form p {
+    margin-bottom: 5px;
+    color: #333;
+    font-weight: bold;
+}
+
 input[type="text"], input[type="datetime-local"] {
-    flex: 1;
+    width: 100%;
     padding: 10px;
     border-radius: 5px;
     border: 1px solid #ccc;
-    margin-right: 10px;
-    width: 100%;
+    margin-bottom: 15px;
     box-sizing: border-box;
 }
 
@@ -43,6 +47,7 @@ button {
     color: white;
     border-radius: 5px;
     cursor: pointer;
+    width: 100%;
 }
 
 button:hover {
@@ -86,7 +91,7 @@ button:hover {
 }
 
 .complete-btn {
-    color: green;
+    color: blue;  /* Zmieniony kolor na niebieski */
 }
 
 .delete-btn {
@@ -94,7 +99,7 @@ button:hover {
 }
 
 .edit_btn {
-    color: blue;
+    color: orange;
 }
 
 .clear-btn {

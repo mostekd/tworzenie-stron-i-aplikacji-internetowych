@@ -12,7 +12,7 @@
 <div class="todo-app">
     <h1>Todo App</h1>
     <form method="POST" action="index.php">
-        <p>Treść zadania</p>
+        <p>Treść zadania:</p>
         <input type="text" name="todo" placeholder="Add your new todo" required>
         <p>Do kiedy:</p>
         <input type="datetime-local" name="deadline" required>

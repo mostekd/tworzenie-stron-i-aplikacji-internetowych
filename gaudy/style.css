@@ -63,21 +63,6 @@ button:hover {
     border: 1px solid #ddd;
 }
 
-.clear-btn {
-    width: 100%;
-    padding: 10px;
-    background-color: #6200ea;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-}
-
-.clear-btn:hover {
-    background-color: #3700b3;
-}
-
 p {
     text-align: center;
     margin: 10px 0 0 0;

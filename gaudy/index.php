@@ -13,30 +13,20 @@
         <h1>Todo App</h1>
         <form method="POST" action="index.php">
             <input type="text" name="todo" placeholder="Add your new todo" required>
-            <button type="submit">+</button>
+            <button type="submit"><i class="fa-solid fa-plus"></i></button>
         </form>
 
         <ul class="todo-list">
             <li>
                 <span>Buy a new gaming laptop</span>
                 <button class="delete-btn"><i class="fa-solid fa-trash"></i></button>
+                <button class="edit_btn"><i class="fa-solid fa-pencil"></i></button>
             </li>
-            <li>
-                <span>Complete a previous task</span>
-                <button class="delete-btn"><i class="fa-solid fa-trash"></i></button>
-            </li>
-            <li>
-                <span>Create video for YouTube</span>
-                <button class="delete-btn"><i class="fa-solid fa-trash"></i></button>
-            </li>
-            <li>
-                <span>Create a new portfolio site</span>
-                <button class="delete-btn"><i class="fa-solid fa-trash"></i></button>
-            </li>
+
         </ul>
 
         <p>You have 4 pending tasks</p>
-        <button class="clear-btn">Clear All</button>
+        <button class="clear-btn">Clear All<i class="fa-solid fa-trash-can"></i></button>
     </div>
 </body>
 </html>

@@ -30,7 +30,6 @@
     }
     ?>
 
-    <!-- Formularz edycji zadania -->
     <form method="POST" action="edit_task.php">
         <p>Treść zadania:</p>
         <input type="text" name="todo" placeholder="Edit your todo" value="<?php echo $task_data['task']; ?>" required>

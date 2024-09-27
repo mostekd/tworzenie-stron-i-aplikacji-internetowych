@@ -13,7 +13,7 @@ body {
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    width: 400px;
 }
 
 h1 {
@@ -32,6 +32,8 @@ input[type="text"], input[type="datetime-local"] {
     border-radius: 5px;
     border: 1px solid #ccc;
     margin-right: 10px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 button {
@@ -54,8 +56,8 @@ button:hover {
 
 .todo-list li {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    align-items: center;
     background-color: #f9f9f9;
     padding: 10px;
     margin-bottom: 10px;
@@ -63,12 +65,23 @@ button:hover {
     border: 1px solid #ddd;
 }
 
-.delete-btn {
+.todo-list li.completed {
+    background-color: #d4edda;
+}
+
+.complete-btn, .delete-btn, .edit_btn {
+    margin-top: 10px;
     background-color: transparent;
-    color: red;
-    display: none;
     border: none;
     cursor: pointer;
+}
+
+.delete-btn {
+    color: red;
+}
+
+.complete-btn {
+    color: green;
 }
 
 .clear-btn {
@@ -78,19 +91,9 @@ button:hover {
     cursor: pointer;
     padding: 10px;
     border-radius: 5px;
+    width: 100%;
 }
 
 .clear-btn:hover {
     background-color: darkred;
-}
-
-.todo-list li:hover .delete-btn {
-    display: block;
-}
-
-.edit_btn {
-    background-color: transparent;
-    color: #333;
-    border: none;
-    cursor: pointer;
 }

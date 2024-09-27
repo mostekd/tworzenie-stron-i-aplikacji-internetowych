@@ -16,23 +16,11 @@
         <input type="datetime-local" name="deadline" required>
         <button type="submit"><i class="fa-solid fa-plus"></i></button>
     </form>
-
-    <ul class="todo-list">
+        <ul class="todo-list">
         <?php
         include 'db_connection.php';
-
-        // Dodawanie nowego zadania do bazy danych
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && !isset($_POST['mark_completed'])) {
-            $task = $_POST['todo'];
-            $deadline = $_POST['deadline'];
-            $query = "INSERT INTO todo_tasks (task, task_deadline) VALUES ('$task', '$deadline')";
-            mysqli_query($connection, $query);
-        }
-
-        // Pobieranie istniejących zadań z bazy danych
         $result = mysqli_query($connection, "SELECT * FROM todo_tasks");
 
-        // Wyświetlanie zadań w HTML
         while ($row = mysqli_fetch_assoc($result)) {
             $completed_class = isset($row['completed']) && $row['completed'] ? 'completed' : '';
 
@@ -40,31 +28,33 @@
             echo "<div><strong>Zadanie:</strong><br>" . $row['task'] . "</div>";
             echo "<div><strong>Do kiedy:</strong><br>" . $row['task_deadline'] . "</div>";
             
-            // Przycisk oznaczenia ukończonego zadania
+            echo "<div class='task-buttons'>";
+
             if (!$row['completed']) {
                 echo "<form method='POST' action='mark_completed.php' style='display:inline;'>
                         <input type='hidden' name='task_id' value='" . $row['id_todo'] . "'>
                         <button class='complete-btn'><i class='fa-solid fa-check'></i></button>
-                      </form>";
+                    </form>";
             }
 
-            // Przycisk edycji zadania (jeśli nie jest oznaczone jako ukończone)
             if (!$row['completed']) {
                 echo "<form method='GET' action='edit_task.php' style='display:inline;'>
                         <input type='hidden' name='task_id' value='" . $row['id_todo'] . "'>
                         <button class='edit_btn'><i class='fa-solid fa-pencil'></i></button>
-                      </form>";
+                    </form>";
             }
 
-            // Przycisk usuwania zadania
             echo "<form method='POST' action='delete_task.php' style='display:inline;'>
                     <input type='hidden' name='task_id' value='" . $row['id_todo'] . "'>
                     <button class='delete-btn'><i class='fa-solid fa-trash'></i></button>
-                  </form>";
+                </form>";
+
+            echo "</div>"; 
             echo "</li>";
         }
         ?>
     </ul>
+
 
     <form method="POST" action="clear_all.php">
         <button class="clear-btn">Clear All <i class="fa-solid fa-trash-can"></i></button>

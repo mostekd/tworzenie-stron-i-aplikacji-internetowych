@@ -55,9 +55,6 @@ button:hover {
 }
 
 .todo-list li {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     background-color: #f9f9f9;
     padding: 10px;
     margin-bottom: 10px;
@@ -69,19 +66,35 @@ button:hover {
     background-color: #d4edda;
 }
 
+.todo-list li div {
+    margin-bottom: 10px;
+}
+
+.todo-list li .task-buttons {
+    display: flex;
+    gap: 10px;
+}
+
 .complete-btn, .delete-btn, .edit_btn {
-    margin-top: 10px;
     background-color: transparent;
     border: none;
     cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.complete-btn {
+    color: blue;  /* Zmieniony kolor na niebieski */
 }
 
 .delete-btn {
     color: red;
 }
 
-.complete-btn {
-    color: green;
+.edit_btn {
+    color: orange;
 }
 
 .clear-btn {

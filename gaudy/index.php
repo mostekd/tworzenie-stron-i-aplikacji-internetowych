@@ -19,8 +19,8 @@
         <ul class="todo-list">
             <li>
                 <span>Buy a new gaming laptop</span>
-                <button class="delete-btn"><i class="fa-solid fa-trash"></i></button>
                 <button class="edit_btn"><i class="fa-solid fa-pencil"></i></button>
+                <button class="delete-btn"><i class="fa-solid fa-trash"></i></button>
             </li>
 
         </ul>

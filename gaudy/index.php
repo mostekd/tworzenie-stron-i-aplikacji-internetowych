@@ -19,19 +19,19 @@
         <ul class="todo-list">
             <li>
                 <span>Buy a new gaming laptop</span>
-                <button class="delete-btn">🗑️</button>
+                <button class="delete-btn"><i class="fa-solid fa-trash"></i></button>
             </li>
             <li>
                 <span>Complete a previous task</span>
-                <button class="delete-btn">🗑️</button>
+                <button class="delete-btn"><i class="fa-solid fa-trash"></i></button>
             </li>
             <li>
                 <span>Create video for YouTube</span>
-                <button class="delete-btn">🗑️</button>
+                <button class="delete-btn"><i class="fa-solid fa-trash"></i></button>
             </li>
             <li>
                 <span>Create a new portfolio site</span>
-                <button class="delete-btn">🗑️</button>
+                <button class="delete-btn"><i class="fa-solid fa-trash"></i></button>
             </li>
         </ul>
 

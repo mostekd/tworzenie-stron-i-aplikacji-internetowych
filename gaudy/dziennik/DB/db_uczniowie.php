@@ -1,5 +1,5 @@
 <?php
-include('./db_connection.php');
+include('../DB/db_connection.php');
     class db_uczniowie extends db_connection{
         function selectUczenWhereKlasa3TI(){
             $query = "SELECT * FROM `uczen` ORDER BY ASC WHERE id_klasa = 10";

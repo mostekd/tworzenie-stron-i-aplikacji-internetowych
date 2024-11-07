@@ -18,7 +18,7 @@
                         echo "<h2>Lista nauczycieli</h2>";
                         echo "<table border='1'>";
                         echo "<tr><th>Imię</th><th>Nazwisko</th><th>Data urodzenia</th></tr>";
-                        while ($row = $result->fetch_assoc()) {
+                        while ($row = $data->fetch_assoc()) {
                             echo "<tr>
                                 <td>" . ($row['imie']) . "</td>
                                 <td>" . ($row['nazwisko']) . "</td>

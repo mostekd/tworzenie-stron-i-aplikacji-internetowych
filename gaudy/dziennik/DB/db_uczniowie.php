@@ -8,5 +8,12 @@ include('../DB/db_connection.php');
             return $data;
             }
         }
+
+        function selectNauczycielByDataUrodzenia(){
+            $query  = "SELECT * FROM nauczyciel ORDER BY data_urodzenia DESC";
+            $data = mysqli_query($this->connect, $query);
+            if (mysqli_num_rows($data) > 0){
+            return $data;
+        }
     }
 ?>

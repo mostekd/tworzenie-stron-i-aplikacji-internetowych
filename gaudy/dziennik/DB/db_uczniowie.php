@@ -18,7 +18,7 @@ class db_uczniowie extends db_connection {
     }
 
     function selectImionaZANaKoncu() {
-        $queryUczniowie = "SELECT COUNT(*) FROM `uczen` WHERE imie LIKE '%a'";
+        $queryUczniowie = "SELECT COUNT(*) as count FROM `uczen` WHERE imie LIKE '%a'";
         $dataUczniowie = mysqli_query($this->connect, $queryUczniowie);
         $countUczniowie = mysqli_fetch_assoc($dataUczniowie)['count'];
 
@@ -28,7 +28,7 @@ class db_uczniowie extends db_connection {
 
         $totalCount = $countUczniowie + $countNauczyciele;
 
-        if (mysqli_num_rows($totalCount) > 0) {
+        if ($totalCount > 0) {
             return [
                 'uczniowie' => $countUczniowie,
                 'nauczyciele' => $countNauczyciele,

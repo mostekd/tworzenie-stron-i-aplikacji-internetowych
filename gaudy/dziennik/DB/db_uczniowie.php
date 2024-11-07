@@ -16,5 +16,25 @@ class db_uczniowie extends db_connection {
             return $data;
         }
     }
+
+    function selectImionaZANaKoncu() {
+        $queryUczniowie = "SELECT COUNT(*) FROM `uczen` WHERE imie LIKE '%a'";
+        $dataUczniowie = mysqli_query($this->connect, $queryUczniowie);
+        $countUczniowie = mysqli_fetch_assoc($dataUczniowie)['count'];
+
+        $queryNauczyciele = "SELECT COUNT(*) as count FROM `nauczyciel` WHERE imie LIKE '%a'";
+        $dataNauczyciele = mysqli_query($this->connect, $queryNauczyciele);
+        $countNauczyciele = mysqli_fetch_assoc($dataNauczyciele)['count'];
+
+        $totalCount = $countUczniowie + $countNauczyciele;
+
+        if (mysqli_num_rows($totalCount) > 0) {
+            return [
+                'uczniowie' => $countUczniowie,
+                'nauczyciele' => $countNauczyciele,
+                'total' => $totalCount
+            ];    
+        }
+    }
 }
 ?>

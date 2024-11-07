@@ -48,16 +48,16 @@ class db_uczniowie extends db_connection {
     }
     
     function usunNauczycieliPrzed1950() {
-        $queryCount = "SELECT COUNT(*) as count FROM `nauczyciele` WHERE `data_urodzenia` < '1950-01-01'";
+        $queryCount = "SELECT COUNT(*) as count FROM `nauczyciel` WHERE `data_urodzenia` < '1950-01-01'";
         $resultCount = mysqli_query($this->connect, $queryCount);
         $count = mysqli_fetch_assoc($resultCount)['count'];
     
         if ($count > 0) {
-            $queryDeleteOceny = "DELETE FROM `ocena` WHERE `id_nauczyciel` IN (SELECT `id` FROM `nauczyciele` WHERE `data_urodzenia` < '1950-01-01')";
+            $queryDeleteOceny = "DELETE FROM `ocena` WHERE `id_nauczyciel` IN (SELECT `id` FROM `nauczyciel` WHERE `data_urodzenia` < '1950-01-01')";
             $resultDeleteOceny = mysqli_query($this->connect, $queryDeleteOceny);
     
             if ($resultDeleteOceny) {
-                $queryDelete = "DELETE FROM `nauczyciele` WHERE `data_urodzenia` < '1950-01-01'";
+                $queryDelete = "DELETE FROM `nauczyciel` WHERE `data_urodzenia` < '1950-01-01'";
                 $resultDelete = mysqli_query($this->connect, $queryDelete);
     
                 if ($resultDelete) {

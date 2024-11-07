@@ -36,5 +36,16 @@ class db_uczniowie extends db_connection {
             ];    
         }
     }
+
+    function zwiekszOceny() {
+        $query = "UPDATE `ocena` SET `ocena` = `ocena` + 1";
+        $result = mysqli_query($this->connect, $query);
+
+        if ($result) {
+            return "Wszystkie oceny zostały zwiększone o 1.";
+        } else {
+            return "Wystąpił błąd podczas zwiększania ocen: " . mysqli_error($this->connect);
+        }
+    }
 }
 ?>

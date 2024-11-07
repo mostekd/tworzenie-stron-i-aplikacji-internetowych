@@ -40,10 +40,12 @@ class db_uczniowie extends db_connection {
     function zwiekszOceny() {
         $query = "UPDATE `ocena` SET `ocena` = `ocena` + 1";
         $data = mysqli_query($this->connect, $query);
-
-        if (mysqli_num_rows($data) > 0) {
-            return $data;
+    
+        if ($data && mysqli_affected_rows($this->connect) > 0) {
+            return true;
         }
+        return false;
     }
+    
 }
 ?>

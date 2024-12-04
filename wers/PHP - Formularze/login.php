@@ -8,4 +8,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     echo "<p>Zakodowane hasło: $password</p>";
     echo "<p>Zapamiętaj mnie: $remember</p>";
 }
+echo "<a href='./ankieta.html'>ankieta</a><br>
+<a href='./komentarz.html'>komentarz</a>";
 ?>

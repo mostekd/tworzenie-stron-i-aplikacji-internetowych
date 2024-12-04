@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularz komentarza</title>
+</head>
+<body>
+    <h2>Dodaj komentarz</h2>
+    <form action="zapisz.php" method="POST">
+        <label for="pseudonim">Pseudonim:</label>
+        <input type="text" id="pseudonim" name="pseudonim" required><br><br>
+
+        <label for="komentarz">Komentarz:</label>
+        <textarea id="komentarz" name="komentarz" rows="4" cols="50" required></textarea><br><br>
+
+        <input type="submit" value="Wyślij komentarz">
+    </form>
+</body>
+</html>

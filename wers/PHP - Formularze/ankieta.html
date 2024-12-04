@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ankieta</title>
+</head>
+<body>
+    <h2>Ankieta</h2>
+    <form action="wynik.php" method="POST">
+        <label for="question1">Wybierz opcję (Lista rozwijana):</label>
+        <select id="question1" name="question1">
+            <option value="option1">Opcja 1</option>
+            <option value="option2">Opcja 2</option>
+            <option value="option3">Opcja 3</option>
+        </select><br><br>
+
+        <label for="question2">Wybierz jedną odpowiedź (Radio):</label><br>
+        <input type="radio" id="q2a" name="question2" value="optionA"> Opcja A<br>
+        <input type="radio" id="q2b" name="question2" value="optionB"> Opcja B<br>
+        <input type="radio" id="q2c" name="question2" value="optionC"> Opcja C<br><br>
+
+        <label for="question3">Wybierz opcje (Checkbox):</label><br>
+        <input type="checkbox" id="q3a" name="question3[]" value="option1"> Opcja 1<br>
+        <input type="checkbox" id="q3b" name="question3[]" value="option2"> Opcja 2<br>
+        <input type="checkbox" id="q3c" name="question3[]" value="option3"> Opcja 3<br><br>
+
+        <input type="submit" value="Zakończ ankietę">
+    </form>
+</body>
+</html>

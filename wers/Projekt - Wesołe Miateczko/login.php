@@ -9,19 +9,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];
     $haslo = $_POST['haslo'];
 
-    $stmt = $conn->prepare("SELECT * FROM Uzytkownicy WHERE email = $email AND haslo = $haslo");
-    $stmt->bind_param("s", $email);
+    // Przygotowanie zapytania SQL
+    $stmt = $conn->prepare("SELECT * FROM Uzytkownicy WHERE email = ? AND haslo = ?");
+    $stmt->bind_param($email, $haslo);
     $stmt->execute();
     $result = $stmt->get_result();
-    $user = $result->fetch_assoc();
 
-    if ($user && password_verify($haslo, $user['
-        ``haslo'])) {
-        $_SESSION['user_id'] = $user['id_uzytkownika'];
-        header('Location: index.php');
-        exit;
+    if ($result->num_rows > 0) {
+        $user = $result->fetch_assoc();
+        
+        // Weryfikacja hasła
+        if (password_verify($haslo, $user['haslo'])) {
+            $_SESSION['user_id'] = $user['id_uzytkownika'];
+            header('Location: index.php');
+            exit;
+        } else {
+            echo "Błędne hasło.";
+        }
     } else {
-        echo "Błędny login lub hasło.";
+        echo "Użytkownik z takim emailem nie istnieje.";
     }
 }
 ?>

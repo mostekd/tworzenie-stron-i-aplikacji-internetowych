@@ -1,10 +1,10 @@
 <?php
-$host = 'localhost';  // Adres serwera bazy danych
-$user = 'root';  // Nazwa użytkownika
-$pass = '';  // Hasło użytkownika
-$db = 'WesoleMiasteczko';  // Nazwa bazy danych
+$host = 'localhost';  
+$user = 'root';  
+$pass = '';  
+$db = 'WesoleMiasteczko';  
 
-// Połączenie z bazą danych
+
 $conn = new mysqli($host, $user, $pass, $db);
 
 if ($conn->connect_error) {

@@ -2,7 +2,7 @@
 include 'db.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $id_uzytkownika = 1;  // Przykład: użytkownik z ID 1
+    $id_uzytkownika = 1;  
     $rodzaj_biletu = $_POST['rodzaj_biletu'];
     $data_uzycia = $_POST['data_uzycia'];
     $cena = ($rodzaj_biletu == 'normalny') ? 50.00 : 30.00;

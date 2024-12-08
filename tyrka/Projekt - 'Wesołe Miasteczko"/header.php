@@ -22,20 +22,33 @@ if (session_status() == PHP_SESSION_NONE) {
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav me-auto">
                 <li class="nav-item"><a class="nav-link" href="atrakcje.php">Atrakcje</a></li>
                 <li class="nav-item"><a class="nav-link" href="bilety.php">Bilety</a></li>
                 <li class="nav-item"><a class="nav-link" href="wydarzenia.php">Wydarzenia</a></li>
                 <li class="nav-item"><a class="nav-link" href="sklep.php">Sklep</a></li>
+            </ul>
+            <ul class="navbar-nav">
                 <?php if(isset($_SESSION['user_id'])): ?>
-                    <li class="nav-item"><a class="nav-link" href="profil.php">Mój Profil</a></li>
-                    <li class="nav-item"><a class="nav-link" href="logout.php">Wyloguj</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-user"></i> 
+                            Witaj, <?php echo htmlspecialchars($_SESSION['user_name']); ?>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="profil.php">Mój Profil</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="logout.php">Wyloguj</a></li>
+                        </ul>
+                    </li>
                 <?php else: ?>
                     <li class="nav-item"><a class="nav-link" href="login.php">Logowanie</a></li>
                     <li class="nav-item"><a class="nav-link" href="register.php">Rejestracja</a></li>
                 <?php endif; ?>
             </ul>
+            <button id="darkModeToggle" class="btn btn-light ms-3">
+                <i class="fas fa-moon"></i>
+            </button>
         </div>
-        <button id="darkModeToggle" class="btn btn-light">Tryb Nocny</button>
     </div>
 </nav>

@@ -1,4 +1,5 @@
-CREATE DATABASE IF NOT EXISTS miasteczkotyrksos;
+DROP DATABASE IF EXISTS miasteczkotyrksos;
+CREATE DATABASE miasteczkotyrksos;
 USE miasteczkotyrksos;
 CREATE TABLE Uzytkownicy (
     id_uzytkownika INT AUTO_INCREMENT PRIMARY KEY,
@@ -10,12 +11,16 @@ CREATE TABLE Uzytkownicy (
 );
 
 CREATE TABLE Atrakcje (
-    id_atrakcji INT AUTO_INCREMENT PRIMARY KEY,
-    nazwa VARCHAR(100),
+    id_atrakcji INT PRIMARY KEY AUTO_INCREMENT,
+    nazwa VARCHAR(100) NOT NULL,
     opis TEXT,
     minimalny_wiek INT,
-    czas_trwania TIME
+    czas_trwania VARCHAR(50),
+    typ VARCHAR(50),
+    status ENUM('aktywna', 'w_konserwacji', 'nieaktywna') DEFAULT 'aktywna',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
 
 CREATE TABLE Bilety (
     id_biletu INT AUTO_INCREMENT PRIMARY KEY,
@@ -28,11 +33,14 @@ CREATE TABLE Bilety (
 );
 
 CREATE TABLE Wydarzenia (
-    id_wydarzenia INT AUTO_INCREMENT PRIMARY KEY,
-    nazwa VARCHAR(100),
+    id_wydarzenia INT PRIMARY KEY AUTO_INCREMENT,
+    nazwa VARCHAR(100) NOT NULL,
     opis TEXT,
     data_wydarzenia DATETIME,
-    czas_trwania TIME
+    czas_trwania VARCHAR(50),
+    max_uczestnikow INT,
+    status ENUM('planowane', 'w_trakcie', 'zakonczone') DEFAULT 'planowane',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE Sklep_pamiatki (
@@ -50,18 +58,20 @@ INSERT INTO Uzytkownicy (imie, nazwisko, email, rola) VALUES
 ('Dawid', 'Mostowski', 'dawid.mosiu@gmail.com', 'klient'),
 ('Joshep', 'Gebels', 'komando.SS@gmail.com', 'pracownik');
 
-INSERT INTO Atrakcje (nazwa, opis, minimalny_wiek, czas_trwania) VALUES
-('Kolejka Górska', 'Szybka kolejka z ostrymi zakrętami.', 12, '00:05:00'),
-('Karuzela', 'Klasyczna karuzela dla całej rodziny.', 0, '00:03:00'),
-('Dom Strachów', 'Atrakcja pełna niespodzianek i strachu.', 15, '00:10:00');
+INSERT INTO Atrakcje (nazwa, opis, minimalny_wiek, czas_trwania, typ) VALUES
+('Roller Coaster', 'Ekscytująca przejażdżka kolejką górską', 12, '5 minut', 'ekstremalne'),
+('Karuzela', 'Tradycyjna karuzela dla całej rodziny', 3, '5 minut', 'rodzinne'),
+('Dom Strachów', 'Straszny dom pełen niespodzianek', 10, '10 minut', 'ekstremalne'),
+('Diabelski Młyn', 'Panoramiczny widok na całe miasteczko', 5, '15 minut', 'rodzinne');
 
 INSERT INTO Bilety (id_uzytkownika, typ_biletu, cena, status) VALUES
 (1, 'dzień', 50.00, 'kupiony'),
 (2, 'noc', 70.00, 'kupiony');
 
-INSERT INTO Wydarzenia (nazwa, opis, data_wydarzenia, czas_trwania) VALUES
-('Pokaz Fajerwerków', 'Spektakularny pokaz fajerwerków na zakończenie dnia.', '2024-12-25 20:00:00', '00:30:00'),
-('Koncert na żywo', 'Występ zespołu muzycznego.', '2024-12-31 21:00:00', '01:00:00');
+INSERT INTO Wydarzenia (nazwa, opis, data_wydarzenia, czas_trwania, max_uczestnikow) VALUES
+('Pokaz Świateł', 'Spektakularny pokaz świateł i laserów', '2024-02-14 20:00:00', '45 minut', 200),
+('Parada Postaci', 'Parada z udziałem znanych postaci z bajek', '2024-02-15 16:00:00', '60 minut', 500),
+('Warsztaty Cyrkowe', 'Nauka żonglowania i innych sztuczek cyrkowych', '2024-02-16 14:00:00', '120 minut', 30);
 
 INSERT INTO Sklep_pamiatki (id_uzytkownika, nazwa_produktu, ilosc, cena) VALUES
 (1, 'Pluszak Kolejka Górska', 1, 25.00),

@@ -5,6 +5,7 @@ CREATE TABLE Uzytkownicy (
     imie VARCHAR(50),
     nazwisko VARCHAR(50),
     email VARCHAR(100),
+    haslo VARCHAR(255),
     rola ENUM('klient', 'pracownik') NOT NULL
 );
 

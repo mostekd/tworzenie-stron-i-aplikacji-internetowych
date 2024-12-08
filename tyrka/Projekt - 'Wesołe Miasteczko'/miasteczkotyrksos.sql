@@ -79,4 +79,6 @@ INSERT INTO Sklep_pamiatki (id_uzytkownika, nazwa_produktu, ilosc, cena) VALUES
 (1, 'Czapka z logo', 1, 15.00);
 
 CREATE USER 'tyrka'@'localhost' IDENTIFIED BY '123';
-GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP ON miasteczkotyrksos TO 'tyrka'@'localhost';
+GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP ON miasteczkotyrksos.* TO 'tyrka'@'localhost';
+GRANT ALL PRIVILEGES on miasteczkotyrksos to 'root'@'localhost';
+FLUSH PRIVILEGES;

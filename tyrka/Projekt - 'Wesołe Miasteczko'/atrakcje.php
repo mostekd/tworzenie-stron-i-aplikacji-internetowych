@@ -41,7 +41,7 @@ $result = $conn->query($sql);
                     <?php while($atrakcja = $result->fetch_assoc()): ?>
                         <div class="col-md-6 mb-4">
                             <div class="card h-100">
-                                <img src="images/attractions/<?php echo strtolower(str_replace(' ', '-', $atrakcja['nazwa'])); ?>.jpg" 
+                                <img src="images/attractions/<?php echo strtolower(str_replace(' ', '-', $atrakcja['nazwa'])); ?>.png" 
                                      class="card-img-top" 
                                      alt="<?php echo htmlspecialchars($atrakcja['nazwa']); ?>"
                                      onerror="this.src='images/placeholder.jpg'">

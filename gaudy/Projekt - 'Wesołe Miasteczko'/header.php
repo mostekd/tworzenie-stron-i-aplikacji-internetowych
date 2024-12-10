@@ -26,7 +26,7 @@ if (session_status() == PHP_SESSION_NONE) {
                 <li class="nav-item"><a class="nav-link" href="atrakcje.php">Atrakcje</a></li>
                 <li class="nav-item"><a class="nav-link" href="bilety.php">Bilety</a></li>
                 <li class="nav-item"><a class="nav-link" href="wydarzenia.php">Wydarzenia</a></li>
-                <li class="nav-item"><a class="nav-link" href="sklep.php">Sklep</a></li>
+                <li class="nav-item"><a class="nav-link" href="employees.php">Pracownicy</a></li>
             </ul>
             <ul class="navbar-nav">
                 <?php if(isset($_SESSION['user_id'])): ?>

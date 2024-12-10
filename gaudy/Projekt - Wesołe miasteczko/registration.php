@@ -14,8 +14,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (mysqli_num_rows($check_result) > 0) {
         $error = "Ten email jest już zarejestrowany";
     } else {
-        $query = "INSERT INTO klienci (imie, nazwisko, email, telefon) 
-                 VALUES ('$imie', '$nazwisko', '$email', '$telefon')";
+        $query = "INSERT INTO `klienci`(`imie`, `nazwisko`, `email`, `haslo`, `telefon`) 
+                 VALUES ('$imie', '$nazwisko', '$email', '$haslo', '$telefon')";
         
         if (mysqli_query($conn, $query)) {
             $success = "Rejestracja zakończona pomyślnie";
@@ -50,6 +50,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="form-group">
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="haslo">Hasło:</label>
+                <input type="text" id="haslo" name="haslo">
             </div>
 
             <div class="form-group">

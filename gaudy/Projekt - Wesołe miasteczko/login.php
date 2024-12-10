@@ -4,7 +4,7 @@ include 'header.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = mysqli_real_escape_string($conn, $_POST['email']);
-    $password = $_POST['password'];
+    $password = $_POST['haslo'];
 
     $query = "SELECT id_klienta, email FROM klienci WHERE email = '$email'";
     $result = mysqli_query($conn, $query);

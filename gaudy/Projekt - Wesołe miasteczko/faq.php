@@ -1,40 +1,45 @@
-<?php 
-include 'header.php';
-?>
+<?php require_once 'connect.php';
+include 'header.php'; ?>
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Wesołe Miasteczko</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Często zadawane pytania</h1>
+        
+        <div class="accordion">
+            <div class="accordion-item">
+                <div class="accordion-header">Jakie są godziny otwarcia parku?</div>
+                <div class="accordion-content">
+                    Park jest otwarty codziennie od 10:00 do 22:00 w sezonie letnim (czerwiec-sierpień) 
+                    i od 10:00 do 20:00 w pozostałych miesiącach.
+                </div>
+            </div>
 
-<main class="faq-container">
-    <h1>Często zadawane pytania (FAQ)</h1>
+            <div class="accordion-item">
+                <div class="accordion-header">Czy mogę wnieść własne jedzenie i napoje?</div>
+                <div class="accordion-content">
+                    Tak, można wnieść własne jedzenie i napoje bezalkoholowe. Na terenie parku znajdują się 
+                    również liczne punkty gastronomiczne.
+                </div>
+            </div>
 
-    <section class="faq-section">
-        <div class="faq-item">
-            <h3>Jakie są godziny otwarcia parku?</h3>
-            <p>Park jest otwarty od poniedziałku do piątku w godzinach 10:00-20:00, 
-               a w weekendy od 9:00 do 22:00.</p>
+            <div class="accordion-item">
+                <div class="accordion-header">Jakie są ograniczenia wiekowe i wzrostowe?</div>
+                <div class="accordion-content">
+                    Ograniczenia różnią się w zależności od atrakcji. Szczegółowe informacje znajdują się 
+                    przy każdej atrakcji oraz w sekcji atrakcji na naszej stronie.
+                </div>
+            </div>
+
+            <!-- Add more FAQ items as needed -->
         </div>
-
-        <div class="faq-item">
-            <h3>Czy mogę kupić bilety online?</h3>
-            <p>Tak, bilety można kupić przez naszą stronę internetową. Dostępne są bilety 
-               normalne, ulgowe oraz VIP.</p>
-        </div>
-
-        <div class="faq-item">
-            <h3>Jakie są ograniczenia wiekowe na atrakcje?</h3>
-            <p>Ograniczenia wiekowe są różne dla poszczególnych atrakcji. Szczegółowe 
-               informacje znajdziesz przy opisie każdej atrakcji.</p>
-        </div>
-
-        <div class="faq-item">
-            <h3>Czy w parku jest dostępne jedzenie?</h3>
-            <p>Tak, na terenie parku znajduje się kilka punktów gastronomicznych oferujących 
-               różnorodne posiłki i przekąski.</p>
-        </div>
-
-        <div class="faq-item">
-            <h3>Czy mogę wnieść własne jedzenie i napoje?</h3>
-            <p>Tak, można wnieść własne jedzenie i napoje bezalkoholowe.</p>
-        </div>
-    </section>
-</main>
-
-<?php include 'footer.php'; ?>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

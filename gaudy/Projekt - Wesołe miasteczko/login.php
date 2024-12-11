@@ -1,47 +1,52 @@
 <?php
-include 'connection.php';
+require_once 'connect.php';
 include 'header.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email = mysqli_real_escape_string($conn, $_POST['email']);
-    $password = $_POST['haslo'];
+    $email = sanitize_input($_POST['email']);
+    $haslo = $_POST['haslo'];
 
-    $query = "SELECT id_klienta, email FROM klienci WHERE email = '$email'";
+    $query = "SELECT * FROM klienci WHERE email = '$email'";
     $result = mysqli_query($conn, $query);
 
-    if (mysqli_num_rows($result) == 1) {
-        $row = mysqli_fetch_assoc($result);
-        $_SESSION['user_id'] = $row['id_klienta'];
-        $_SESSION['email'] = $row['email'];
-        header("Location: index.php");
-        exit();
-    } else {
-        $error = "Nieprawidłowy email lub hasło";
+    if ($result && mysqli_num_rows($result) > 0) {
+        $user = mysqli_fetch_assoc($result);
+        if (password_verify($haslo, $user['haslo'])) {
+            $_SESSION['user_id'] = $user['id_klienta'];
+            $_SESSION['user_name'] = $user['imie'];
+            header("Location: index.php");
+            exit();
+        }
     }
+    $error = "Nieprawidłowy email lub hasło";
 }
 ?>
 
-<main class="login-container">
-    <section class="login-form">
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logowanie - Wesołe Miasteczko</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="form-container">
         <h2>Logowanie</h2>
-        <?php if(isset($error)) echo "<p class='error'>$error</p>"; ?>
-        
+        <?php if (isset($error)) echo "<p class='error'>$error</p>"; ?>
         <form method="POST" action="">
             <div class="form-group">
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="email" name="email" required class="form-input">
             </div>
-
             <div class="form-group">
-                <label for="password">Hasło:</label>
-                <input type="password" id="password" name="password" required>
+                <label for="haslo">Hasło:</label>
+                <input type="password" id="haslo" name="haslo" required class="form-input">
             </div>
-
-            <button type="submit" class="submit-btn">Zaloguj się</button>
+            <button type="submit" class="btn btn-primary">Zaloguj się</button>
         </form>
-
-        <p>Nie masz konta? <a href="registration.php">Zarejestruj się</a></p>
-    </section>
-</main>
-
-<?php include 'footer.php'; ?>
+        <p>Nie masz konta? <a href="register.php">Zarejestruj się</a></p>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,52 +1,53 @@
-<?php 
-include 'header.php';
-?>
+<?php require_once 'connect.php';
+include 'header.php'; ?>
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Przewodnik - Wesołe Miasteczko</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Przewodnik po parku</h1>
 
-<main class="guide-container">
-    <h1>Przewodnik po parku</h1>
+        <section class="guide-section">
+            <h2>Plan parku</h2>
+            <div class="park-map">
+                <!-- Add your park map image here -->
+                <img src="images/park-map.jpg" alt="Plan parku">
+            </div>
+        </section>
 
-    <section class="park-map">
-        <h2>Mapa parku</h2>
-        <img src="images/park-map.jpg" alt="Mapa parku" class="map-image">
-    </section>
+        <section class="guide-section">
+            <h2>Informacje praktyczne</h2>
+            <div class="info-cards">
+                <div class="card">
+                    <h3>Transport</h3>
+                    <p>Jak dotrzeć do parku, parking, komunikacja miejska</p>
+                </div>
+                <div class="card">
+                    <h3>Udogodnienia</h3>
+                    <p>Szafki, wypożyczalnia wózków, punkty pierwszej pomocy</p>
+                </div>
+                <div class="card">
+                    <h3>Gastronomia</h3>
+                    <p>Restauracje, kawiarnie, punkty z przekąskami</p>
+                </div>
+            </div>
+        </section>
 
-    <section class="visitor-info">
-        <h2>Informacje dla odwiedzających</h2>
-        
-        <div class="info-card">
-            <h3>Transport</h3>
-            <p>Jak do nas dotrzeć:</p>
-            <ul>
-                <li>Samochodem: Parking dostępny przy głównym wejściu</li>
-                <li>Autobusem: Linie 101, 102, 103</li>
-                <li>Pociągiem: Stacja "Wesołe Miasteczko"</li>
+        <section class="guide-section">
+            <h2>Zasady bezpieczeństwa</h2>
+            <ul class="safety-rules">
+                <li>Przestrzegaj instrukcji obsługi atrakcji</li>
+                <li>Zachowaj bezpieczną odległość w kolejkach</li>
+                <li>Pilnuj dzieci</li>
+                <li>Nie wnoś niebezpiecznych przedmiotów</li>
             </ul>
-        </div>
-
-        <div class="info-card">
-            <h3>Udogodnienia</h3>
-            <ul>
-                <li>Szafki na bagaż</li>
-                <li>Wypożyczalnia wózków dla dzieci</li>
-                <li>Punkty pierwszej pomocy</li>
-                <li>Toalety</li>
-            </ul>
-        </div>
-
-        <div class="info-card">
-            <h3>Zasady bezpieczeństwa</h3>
-            <ul>
-                <li>Przestrzegaj ograniczeń wiekowych i wzrostowych</li>
-                <li>Słuchaj poleceń obsługi</li>
-                <li>Nie biegaj w pobliżu atrakcji</li>
-                <li>Pilnuj swoich rzeczy osobistych</li>
-            </ul>
-        </div>
-    </section>
-
-    <section class="attractions-guide">
-        <h2>Przewodnik po atrakcjach</h2>
-        <div class="attractions-tips">
-            <h3>Zalecana kolejność zwiedzania</h3>
-            <ol>
-                <li>Rozpocznij od spok
+        </section>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

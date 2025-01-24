@@ -46,7 +46,6 @@ const height = parseFloat(prompt("Wprowadź wysokość:"));
 const volume = length * width * height;
 document.getElementById('output').innerHTML += `<p>Zadanie 6: </p><p>Pole prostopadłościanu o wymiarach ${length} x ${width} x ${height} to: ${volume}`;
 
-
 //7
 const radius = parseFloat(prompt("Wprowadź promień koła:"));
 

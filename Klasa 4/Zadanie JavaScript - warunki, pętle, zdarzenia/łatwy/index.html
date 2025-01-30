@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zadania JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        input {
+            margin: 5px;
+            padding: 5px;
+        }
+        button {
+            margin: 5px;
+            padding: 5px 10px;
+        }
+        #output {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Zadania JavaScript</h1>
+    <div id="inputs">
+        <input type="number" id="num1" placeholder="Liczba 1">
+        <input type="number" id="num2" placeholder="Liczba 2">
+        <input type="text" id="text" placeholder="Tekst">
+    </div>
+    <div id="buttons">
+        <button onclick="checkEvenOdd()">Parzysta/Nieparzysta</button>
+        <button onclick="greaterThan10()">Większa od 10</button>
+        <button onclick="compareNumbers()">Porównaj liczby</button>
+        <button onclick="checkSign()">Znak liczby</button>
+        <button onclick="checkAge()">Pełnoletni</button>
+        <button onclick="loop1to10()">Wyświetl 1-10</button>
+        <button onclick="printHello()">Wyświetl "Cześć!"</button>
+        <button onclick="sumNumbers()">Suma 1-100</button>
+        <button onclick="printEvenNumbers()">Liczby parzyste</button>
+        <button onclick="sumUserNumbers()">Suma 5 liczb</button>
+        <button id="clickButton">Kliknij mnie!</button>
+        <button id="enterButton">Wciśnij Enter</button>
+        <button id="changeBackgroundColor">Zmień kolor tła</button>
+        <input type="text" id="clearInput" placeholder="Tekst do wyczyszczenia">
+        <button onclick="clearInput()">Wyczyść</button>
+        <span id="hoverText">Najedź na mnie</span>
+    </div>
+    <div id="output"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

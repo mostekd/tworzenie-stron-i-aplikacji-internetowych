@@ -1,4 +1,6 @@
 // Łatwy poziom
+
+//Warunki
 function checkEvenOdd() {
     const num = parseInt(document.getElementById("num1").value);
     const output = document.getElementById("output");
@@ -62,6 +64,8 @@ function checkAge() {
     }
 }
 
+//Pętle
+
 function loop1to10() {
     const output = document.getElementById("output");
     let result = "";
@@ -116,6 +120,7 @@ function sumUserNumbers() {
 }
 
 // Zdarzenia
+
 const clickButton = document.getElementById("clickButton");
 clickButton.addEventListener("click", function() {
     document.getElementById("output").textContent = "Kliknięto przycisk!";

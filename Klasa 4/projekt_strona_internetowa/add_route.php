@@ -11,12 +11,11 @@ if ($conn->connect_error) {
 }
 
 $name = $_POST['name'];
-$difficulty = $_POST['difficulty'];
+$difficulty_id = $_POST['difficulty'];
 $description = $_POST['description'];
-$location_lat = $_POST['location_lat'];
-$location_lng = $_POST['location_lng'];
+$location = $_POST['location'];
 
-$sql = "INSERT INTO routes (name, difficulty, description, location_lat, location_lng) VALUES ('$name', '$difficulty', '$description', '$location_lat', '$location_lng')";
+$sql = "INSERT INTO routes (name, difficulty_id, description, location) VALUES ('$name', '$difficulty_id', '$description', '$location')";
 
 $response = array();
 

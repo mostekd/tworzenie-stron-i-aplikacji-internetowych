@@ -1,9 +1,21 @@
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('route-form');
     const routesList = document.getElementById('routes-list');
+    const difficultySelect = document.getElementById('difficulty');
     const locationInput = document.getElementById('location');
     let map;
     let marker;
+
+    async function loadDifficulties() {
+        const response = await fetch('get_difficulties.php');
+        const difficulties = await response.json();
+        difficulties.forEach(difficulty => {
+            const option = document.createElement('option');
+            option.value = difficulty.id;
+            option.textContent = difficulty.level;
+            difficultySelect.appendChild(option);
+        });
+    }
 
     window.initMap = function() {
         map = new google.maps.Map(document.getElementById('map'), {
@@ -57,5 +69,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    loadDifficulties();
     loadRoutes();
 });

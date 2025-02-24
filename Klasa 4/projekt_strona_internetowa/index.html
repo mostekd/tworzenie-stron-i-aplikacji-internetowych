@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Climbing Gym</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Climbing Gym</h1>
+    </header>
+    <main>
+        <section id="routes">
+            <h2>Routes</h2>
+            <div id="routes-list"></div>
+        </section>
+        <section id="add-route">
+            <h2>Add New Route</h2>
+            <form id="route-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="difficulty">Difficulty:</label>
+                <input type="text" id="difficulty" name="difficulty" required>
+                <label for="description">Description:</label>
+                <textarea id="description" name="description"></textarea>
+                <button type="submit">Add Route</button>
+            </form>
+        </section>
+    </main>
+    <script src="scripts.js"></script>
+</body>
+</html>

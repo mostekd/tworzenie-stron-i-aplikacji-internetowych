@@ -13,8 +13,10 @@ if ($conn->connect_error) {
 $name = $_POST['name'];
 $difficulty = $_POST['difficulty'];
 $description = $_POST['description'];
+$location_lat = $_POST['location_lat'];
+$location_lng = $_POST['location_lng'];
 
-$sql = "INSERT INTO routes (name, difficulty, description) VALUES ('$name', '$difficulty', '$description')";
+$sql = "INSERT INTO routes (name, difficulty, description, location_lat, location_lng) VALUES ('$name', '$difficulty', '$description', '$location_lat', '$location_lng')";
 
 $response = array();
 

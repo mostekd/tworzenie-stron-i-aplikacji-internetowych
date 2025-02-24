@@ -6,5 +6,7 @@ CREATE TABLE IF NOT EXISTS routes (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     difficulty VARCHAR(50) NOT NULL,
-    description TEXT
+    description TEXT,
+    location VARCHAR(255) NOT NULL,
+    coordinates POINT
 );

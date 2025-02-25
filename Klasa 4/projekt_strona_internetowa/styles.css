@@ -57,7 +57,6 @@ nav a::after {
     width: 0; /* Start with 0 width */
     transition: width 0.3s; /* Smooth width transition */
     position: absolute; /* Position relative to the link */
-    left: 50%; /* Center the underline */
     bottom: -5px; /* Position it below the text */
 }
 
@@ -91,11 +90,6 @@ section {
 /* Scale effect on hover */
 section:hover {
     transform: translateY(-5px); /* Slight lift on hover */
-}
-
-/* Heading Styles */
-h1, h2 {
-    color: var(--secondary-color); /* Dark color for headings */
 }
 
 /* Form Styles */

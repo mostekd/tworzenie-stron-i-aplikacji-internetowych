@@ -10,22 +10,22 @@
 </head>
 <body>
     <form action="save_route.php" method="post">
-        <input type="text" name="name" placeholder="Name">
-        <select name="difficulty_id">
+        <input type="text" name="name" placeholder="Name" required>
+        <select name="difficulty_id" required>
             <?php
                 include_once("../DB/db_climbing.php");
                 $db = new db_climbing();
                 $data = $db->selectDifficulties();
                 while($row = mysqli_fetch_assoc($data))
                 {
-                    echo "<option value='".$row['id']."'>".$row['level']."</option>";
+                    echo "<option value='".$row['difficulty_id']."'>".$row['level']."</option>";
                 }
             ?>
         </select> 
-        <input type="text" name="description" placeholder="Description">
+        <input type="text" name="description" placeholder="Description" required>
         <div id="map" style="height: 400px; width: 100%;"></div>
-        <input type="hidden" name="latitude" id="latitude">
-        <input type="hidden" name="longitude" id="longitude">
+        <input type="hidden" name="latitude" id="latitude" required>
+        <input type="hidden" name="longitude" id="longitude" required>
         <button type="submit">Add Route</button>
     </form>
 </body>

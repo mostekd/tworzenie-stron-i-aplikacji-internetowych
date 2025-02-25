@@ -13,7 +13,7 @@
 
         function selectRoutesByDifficulty($difficulty_id)
         {
-            $query = "SELECT * FROM routes WHERE difficulty = '".$difficulty_id."';";
+            $query = "SELECT * FROM routes WHERE difficulty_id = '".$difficulty_id."';";
             $data = mysqli_query($this->connect, $query);
             if (mysqli_num_rows($data) > 0)
             {
@@ -31,12 +31,11 @@
             }
         }
 
-        function insertRoute($name, $difficulty_id, $description, $location){
-            $query = "INSERT INTO `routes`(`name`, `difficulty_id`, `description`, `location`) VALUES ('".$name."','".$difficulty_id."','".$description."','".$location."');";
+        function insertRoute($name, $difficulty_id, $description, $latitude, $longitude){
+            $query = "INSERT INTO `routes`(`name`, `difficulty_id`, `description`, `latitude`, `longitude`) VALUES ('".$name."','".$difficulty_id."','".$description."','".$latitude."','".$longitude."');";
             $data = mysqli_query($this->connect, $query);
-            header('location: ../BO/admin_about_company.php'); 
+            header('location: ../FO/index.html'); 
             $this->close();
         }
-
     }
 ?>

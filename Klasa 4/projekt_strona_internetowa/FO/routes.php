@@ -19,6 +19,7 @@
             echo "<h1>".$row['name']."</h1>";
             echo "<p>".$row['description']."</p>";
             echo "<div id='map".$row['id']."' style='height: 400px; width: 100%;'></div>";
+            echo "<script>initMap(".$row['latitude'].", ".$row['longitude'].", 'map".$row['id']."');</script>";
             echo "</div>";
         }
     ?>

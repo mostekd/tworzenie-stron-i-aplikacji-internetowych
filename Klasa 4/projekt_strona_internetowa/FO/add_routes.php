@@ -41,6 +41,9 @@
                 <label for="description">Description</label>
                 <input type="text" name="description" id="description" placeholder="Description" required>
                 
+                <label for="location">Location</label>
+                <input type="text" name="location" id="location" placeholder="Location" required>
+                
                 <label for="map">Select Location</label>
                 <div id="map" style="height: 400px; width: 100%;"></div>
                 

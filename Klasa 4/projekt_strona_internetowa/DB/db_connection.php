@@ -29,5 +29,21 @@ class db_connection {
         fwrite($myfile, $query."\n\n");
         fclose($myfile);
     }
+
+    public function query($query) {
+        $result = $this->connect->query($query);
+        if (!$result) {
+            die("SQL Error: " . $this->connect->error);
+        }
+        return $result;
+    }
+
+    public function prepare($query) {
+        $stmt = $this->connect->prepare($query);
+        if (!$stmt) {
+            die("SQL Error: " . $this->connect->error);
+        }
+        return $stmt;
+    }
 }
 ?>

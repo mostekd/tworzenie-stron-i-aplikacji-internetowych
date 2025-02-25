@@ -12,7 +12,6 @@ CREATE TABLE IF NOT EXISTS routes (
     name VARCHAR(255) NOT NULL,
     difficulty_id INT NOT NULL,
     description TEXT,
-    location VARCHAR(255) NOT NULL,
     latitude FLOAT NOT NULL,
     longitude FLOAT NOT NULL,
     FOREIGN KEY (difficulty_id) REFERENCES difficulties(difficulty_id)

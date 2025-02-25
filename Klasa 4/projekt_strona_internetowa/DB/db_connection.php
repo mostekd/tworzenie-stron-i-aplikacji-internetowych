@@ -1,35 +1,33 @@
 <?php
-    class db_connection{
-        public $connect;
+class db_connection {
+    protected $connect;
 
-        var $host = "localhost";
-        var $dbname = "climbing_gym";
-        var $username = "root";
-        var $password = "";
+    private $host = "localhost";
+    private $dbname = "climbing_gym";
+    private $username = "root";
+    private $password = "";
 
-        public function databaseConnect(){
-            $con = mysqli_connect($this->host, $this->username, $this->password, $this->dbname);
-            if(!$con){
-                die("Connection failed: " . mysqli_connect_error());
-            }
-            else{
-                $this->connect = $con;
-            }
-        }
+    public function __construct() {
+        $this->connect = new mysqli($this->host, $this->username, $this->password, $this->dbname);
 
-        public function close(){
-            mysqli_close($this->connect);
-        }
-
-        public function wQueryToFile($query)
-        {
-            //Linux:
-            $myfile = fopen("/opt/lampp/htdocs/github/projekt_strona_internetowa/DB/testfile.txt", "a") or die("Unable to open file!");
-
-            //Windows:
-            // $myfile = fopen("C:/xampp/htdocs/dashboard/Strony Internetowe/secur-it/DB/testfile.txt", "a") or die("Unable to open file!");
-            fwrite($myfile, $query."\n\n");
-            fclose($myfile);
+        if ($this->connect->connect_error) {
+            die("Connection failed: " . $this->connect->connect_error);
         }
     }
+
+    public function close() {
+        $this->connect->close();
+    }
+
+    public function wQueryToFile($query)
+    {
+        //Linux:
+        $myfile = fopen("/opt/lampp/htdocs/github/projekt_strona_internetowa/DB/testfile.txt", "a") or die("Unable to open file!");
+
+        //Windows:
+        // $myfile = fopen("C:/xampp/htdocs/dashboard/Strony Internetowe/secur-it/DB/testfile.txt", "a") or die("Unable to open file!");
+        fwrite($myfile, $query."\n\n");
+        fclose($myfile);
+    }
+}
 ?>

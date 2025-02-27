@@ -20,8 +20,8 @@ class db_climbing extends db_connection {
         return $this->query($query);
     }
 
-    public function insertRoute($name, $difficulty_id, $description, $latitude, $longitude, $location) {
-        $query = "INSERT INTO routes (name, difficulty_id, description, latitude, longitude, location) VALUES (?, ?, ?, ?, ?, ?)";
+    public function insertRoute($name, $difficulty_id, $description) {
+        $query = "INSERT INTO routes (name, difficulty_id, description) VALUES (?, ?, ?)";
         $stmt = $this->prepare($query);
         $stmt->bind_param("sisdds", $name, $difficulty_id, $description, $latitude, $longitude, $location);
         if (!$stmt->execute()) {

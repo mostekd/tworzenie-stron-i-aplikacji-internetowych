@@ -30,8 +30,6 @@
                     echo "<div class='route'>";
                     echo "<h3>".$row['name']."</h3>";
                     echo "<p>".$row['description']."</p>";
-                    echo "<div id='map".$row['id']."' class='route-map'></div>";
-                    echo "<script>initMap(".$row['latitude'].", ".$row['longitude'].", 'map".$row['id']."');</script>";
                     echo "</div>";
                 }
             ?>

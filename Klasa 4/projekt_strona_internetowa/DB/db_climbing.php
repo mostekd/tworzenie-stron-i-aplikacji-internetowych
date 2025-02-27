@@ -23,12 +23,22 @@ class db_climbing extends db_connection {
     public function insertRoute($name, $difficulty_id, $description) {
         $query = "INSERT INTO routes (name, difficulty_id, description) VALUES (?, ?, ?)";
         $stmt = $this->prepare($query);
-        $stmt->bind_param("sisdds", $name, $difficulty_id, $description, $latitude, $longitude, $location);
+        $stmt->bind_param("sis", $name, $difficulty_id, $description);
         if (!$stmt->execute()) {
             throw new Exception("SQL Error: " . $stmt->error);
         }
         $stmt->close();
         header('Location: ../FO/index.html');
+    }
+
+    public function deleteRoute($route_id) {
+        $query = "DELETE FROM routes WHERE id = ?";
+        $stmt = $this->prepare($query);
+        $stmt->bind_param("i", $route_id);
+        if (!$stmt->execute()) {
+            throw new Exception("SQL Error: " . $stmt->error);
+        }
+        $stmt->close();
     }
 }
 ?>

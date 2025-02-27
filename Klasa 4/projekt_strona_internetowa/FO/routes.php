@@ -30,13 +30,17 @@
                     echo "<div class='route'>";
                     echo "<h3>".$row['name']."</h3>";
                     echo "<p>".$row['description']."</p>";
+                    echo "<form action='delete_route.php' method='post' onsubmit='return confirm(\"Are you sure you want to delete this route?\");'>";
+                    echo "<input type='hidden' name='route_id' value='".$row['id']."'>";
+                    echo "<button type='submit' class='delete-button'>Delete</button>";
+                    echo "</form>";
                     echo "</div>";
                 }
             ?>
         </section>
     </main>
     <footer>
-        <p>&copy; 2023 Climbing Gym. All rights reserved.</p>
+        <p>&copy; 2025 Climbing Gym. All rights reserved.</p>
     </footer>
 </body>
 </html>

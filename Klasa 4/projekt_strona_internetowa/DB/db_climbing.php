@@ -3,7 +3,7 @@ include_once("db_connection.php");
 
 class db_climbing extends db_connection {
     public function selectRoutes() {
-        $query = "SELECT * FROM routes";
+        $query = "SELECT * FROM routes JOIN difficulties ON routes.difficulty_id = difficulties.difficulty_id";
         return $this->query($query);
     }
 

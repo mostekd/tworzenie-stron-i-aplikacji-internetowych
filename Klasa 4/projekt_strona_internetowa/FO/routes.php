@@ -28,8 +28,9 @@
                 $data = $db->selectRoutes();
                 while($row = $data->fetch_assoc()) {
                     echo "<div class='route'>";
-                    echo "<h3>".$row['name']."</h3>";
-                    echo "<p>".$row['description']."</p>";
+                    echo "<h3>Nazwa: ".$row['name']."</h3>";
+                    echo "<p>Trudność: ".$row['level']."</p>";
+                    echo "<p>Opis: ".$row['description']."</p>";
                     echo "<form action='delete_route.php' method='post' onsubmit='return confirm(\"Are you sure you want to delete this route?\");'>";
                     echo "<input type='hidden' name='route_id' value='".$row['id']."'>";
                     echo "<button type='submit' class='delete-button'>Delete</button>";

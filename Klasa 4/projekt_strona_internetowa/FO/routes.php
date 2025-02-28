@@ -22,10 +22,29 @@
     <main>
         <section>
             <h2>Available Routes</h2>
+            <form method="get" action="routes.php">
+                <label for="difficulty_id">Filter by Difficulty Level:</label>
+                <select name="difficulty_id" id="difficulty_id">
+                    <option value="">All</option>
+                    <?php
+                        include_once("../DB/db_climbing.php");
+                        $db = new db_climbing();
+                        $difficulties = $db->selectDifficulties();
+                        while($row = $difficulties->fetch_assoc()) {
+                            $selected = isset($_GET['difficulty_id']) && $_GET['difficulty_id'] == $row['difficulty_id'] ? 'selected' : '';
+                            echo "<option value='".$row['difficulty_id']."' $selected>".$row['level']."</option>";
+                        }
+                    ?>
+                </select>
+                <button type="submit">Filter</button>
+            </form>
             <?php
-                include_once("../DB/db_climbing.php");
-                $db = new db_climbing();
-                $data = $db->selectRoutes();
+                $difficulty_id = isset($_GET['difficulty_id']) ? $_GET['difficulty_id'] : '';
+                if ($difficulty_id) {
+                    $data = $db->selectRoutesByDifficulty($difficulty_id);
+                } else {
+                    $data = $db->selectRoutes();
+                }
                 while($row = $data->fetch_assoc()) {
                     echo "<div class='route'>";
                     echo "<h3>Nazwa: ".$row['name']."</h3>";

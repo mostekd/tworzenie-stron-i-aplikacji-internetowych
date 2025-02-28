@@ -8,7 +8,7 @@ class db_climbing extends db_connection {
     }
 
     public function selectRoutesByDifficulty($difficulty_id) {
-        $query = "SELECT * FROM routes WHERE difficulty_id = ?";
+        $query = "SELECT * FROM routes JOIN difficulties ON routes.difficulty_id = difficulties.difficulty_id WHERE routes.difficulty_id = ?";
         $stmt = $this->prepare($query);
         $stmt->bind_param("i", $difficulty_id);
         $stmt->execute();

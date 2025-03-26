@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palindrom Detektor | Sprawdź swoją frazę</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body>
+    <div class="glass-container">
+        <div class="content">
+            <div class="header animate__animated animate__fadeInDown">
+                <div class="logo">
+                    <svg viewBox="0 0 24 24" width="40" height="40">
+                        <path fill="#6c5ce7" d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M9,7H15V9H11V11H15V13H11V15H15V17H9V7Z" />
+                    </svg>
+                    <h1>Palindrom<span>Checker</span></h1>
+                </div>
+                <p class="subtitle">Sprawdź czy Twoja fraza czyta się tak samo od przodu i od tyłu</p>
+            </div>
+
+            <div class="input-container animate__animated animate__fadeInUp animate__delay-1s">
+                <div class="input-group">
+                    <input type="text" id="text-input" placeholder="Wpisz tekst..." autocomplete="off">
+                    <button id="check-btn" class="btn-gradient">
+                        <span>Sprawdź</span>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="hint">Ignorujemy spacje, znaki specjalne i wielkość liter</div>
+            </div>
+
+            <div id="result" class="result-container hidden">
+                <div class="result-content">
+                    <div id="result-icon"></div>
+                    <p id="result-text"></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer animate__animated animate__fadeInUp animate__delay-2s">
+            <p>© 2025 PalindromChecker</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

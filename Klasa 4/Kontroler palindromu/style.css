@@ -1,0 +1,251 @@
+:root {
+    --primary: #6c5ce7;
+    --primary-light: #a29bfe;
+    --secondary: #00cec9;
+    --success: #00b894;
+    --error: #d63031;
+    --warning: #fdcb6e;
+    --dark: #2d3436;
+    --light: #f5f6fa;
+    --glass: rgba(255, 255, 255, 0.2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    color: var(--dark);
+}
+
+.glass-container {
+    background: var(--glass);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    width: 100%;
+    max-width: 600px;
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+.glass-container::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+    z-index: -1;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.header {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.logo h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: white;
+}
+
+.logo span {
+    color: var(--primary-light);
+    font-weight: 300;
+}
+
+.subtitle {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 14px;
+    font-weight: 300;
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.input-group {
+    position: relative;
+    display: flex;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+#text-input {
+    flex: 1;
+    padding: 16px 20px;
+    border: none;
+    font-size: 16px;
+    background: white;
+    color: var(--dark);
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+#text-input:focus {
+    box-shadow: 0 0 0 2px var(--primary-light);
+}
+
+.btn-gradient {
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    color: white;
+    border: none;
+    padding: 0 25px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-gradient:hover {
+    background: linear-gradient(45deg, var(--primary-light), var(--primary));
+    transform: translateY(-2px);
+}
+
+.btn-gradient:active {
+    transform: translateY(0);
+}
+
+.btn-gradient svg {
+    transition: transform 0.3s ease;
+}
+
+.btn-gradient:hover svg {
+    transform: translateX(3px);
+}
+
+.hint {
+    text-align: center;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.6);
+    font-style: italic;
+}
+
+.result-container {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.result-container.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.result-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+#result-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+#result-icon::before {
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    font-size: 20px;
+    color: white;
+}
+
+.palindrome #result-icon {
+    background-color: var(--success);
+}
+
+.palindrome #result-icon::before {
+    content: '\f00c';
+}
+
+.not-palindrome #result-icon {
+    background-color: var(--error);
+}
+
+.not-palindrome #result-icon::before {
+    content: '\f00d';
+}
+
+.error #result-icon {
+    background-color: var(--warning);
+}
+
+.error #result-icon::before {
+    content: '\f06a';
+}
+
+#result-text {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 30px;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 12px;
+}
+
+@media (max-width: 768px) {
+    .glass-container {
+        padding: 30px 20px;
+    }
+    
+    .input-group {
+        flex-direction: column;
+    }
+    
+    #text-input {
+        padding: 14px 16px;
+    }
+    
+    .btn-gradient {
+        padding: 12px;
+        justify-content: center;
+    }
+}

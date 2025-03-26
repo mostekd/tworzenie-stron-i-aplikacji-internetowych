@@ -3,74 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CyberStone | NeoFuturistic RPS</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
+    <title>root@terminal:~# RPS_HACK</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <div class="cyber-grid"></div>
-    <div class="cyber-line line-1"></div>
-    <div class="cyber-line line-2"></div>
-    
-    <div class="game-container">
-        <div class="game-header">
-            <h1>CyberStone</h1>
-            <p>NeoFuturistic Rock Paper Scissors</p>
+    <div class="terminal">
+        <div class="terminal-header">
+            <div class="terminal-title">root@terminal:~# RPS_HACK</div>
+            <div class="terminal-controls">
+                <span style="background-color: var(--hacker-red);"></span>
+                <span style="background-color: var(--hacker-yellow);"></span>
+                <span style="background-color: var(--hacker-green);"></span>
+            </div>
         </div>
-        
-        <div class="game-content">
-            <div class="scoreboard">
-                <div class="score">
-                    <h3>Player</h3>
-                    <div class="score-value" id="player-score">0</div>
-                </div>
-                <div class="score">
-                    <h3>AI Core</h3>
-                    <div class="score-value" id="computer-score">0</div>
-                </div>
-                <div class="score">
-                    <h3>Draws</h3>
-                    <div class="score-value" id="draws">0</div>
+        <div class="terminal-body" id="terminal-body">
+            <div class="output">
+                <div class="command-line">
+                    <span class="prompt">root@terminal:~#</span>
+                    <span class="typewriter">./start_rps_hack.sh</span>
                 </div>
             </div>
-            
-            <div class="choices">
-                <button class="choice-btn" id="rock">
-                    <i class="fas fa-hand-fist"></i>
-                    <span>Rock</span>
-                </button>
-                <button class="choice-btn" id="paper">
-                    <i class="fas fa-hand-paper"></i>
-                    <span>Paper</span>
-                </button>
-                <button class="choice-btn" id="scissors">
-                    <i class="fas fa-hand-scissors"></i>
-                    <span>Scissors</span>
-                </button>
+            <div class="output">
+                <div>> Initializing Rock-Paper-Scissors protocol...</div>
+                <div>> Bypassing security layers...</div>
+                <div>> Establishing connection to opponent...</div>
+                <div>> Connection established with TARGET_AI</div>
+                <div>> Ready for cyber duel</div>
             </div>
-            
-            <div class="result-container">
-                <div id="round-result">Initiate sequence...</div>
-                <div class="choices-display">
-                    <div class="choice-display">
-                        <p>Your move</p>
-                        <i class="fas fa-question"></i>
+            <div class="game-container" id="game-container">
+                <div class="scoreboard">
+                    <div class="score">
+                        <h3>HACKER</h3>
+                        <div class="score-value" id="player-score">0</div>
                     </div>
-                    <div class="choice-display">
-                        <p>AI response</p>
-                        <i class="fas fa-question"></i>
+                    <div class="score">
+                        <h3>TARGET_AI</h3>
+                        <div class="score-value" id="computer-score">0</div>
+                    </div>
+                    <div class="score">
+                        <h3>DRAWS</h3>
+                        <div class="score-value" id="draws">0</div>
                     </div>
                 </div>
-            </div>
-            
-            <button class="reset-btn" id="reset-btn">System Reset</button>
-            
-            <div class="game-footer">
-                CyberInterface v2.3.7
+                
+                <div class="result-container" id="result-container">
+                    <div>> Select your attack vector:</div>
+                </div>
+                
+                <div class="choices">
+                    <button class="choice-btn" id="rock">
+                        [1] ROCK_EXPLOIT
+                    </button>
+                    <button class="choice-btn" id="paper">
+                        [2] PAPER_VIRUS
+                    </button>
+                    <button class="choice-btn" id="scissors">
+                        [3] SCISSORS_WORM
+                    </button>
+                </div>
+                
+                <button class="reset-btn" id="reset-btn">
+                    [0] TERMINATE_SESSION
+                </button>
             </div>
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="./script.js"></script>
 </body>
 </html>

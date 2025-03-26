@@ -1,0 +1,309 @@
+:root {
+    --hacker-green: #00ff00;
+    --hacker-dark: #0a0a0a;
+    --hacker-darker: #000;
+    --hacker-light: #aaaaaa;
+    --hacker-red: #ff0033;
+    --hacker-blue: #0066ff;
+    --hacker-yellow: #ffff00;
+}
+
+@font-face {
+    font-family: 'Hack';
+    src: url('https://cdnjs.cloudflare.com/ajax/libs/hack-font/3.3.0/web/fonts/hack-regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--hacker-darker);
+    color: var(--hacker-green);
+    font-family: 'Hack', monospace;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    overflow-x: hidden;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(rgba(0, 255, 0, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 0, 0.03) 1px, transparent 1px);
+    background-size: 20px 20px;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.terminal {
+    background-color: var(--hacker-dark);
+    border: 1px solid var(--hacker-green);
+    width: 100%;
+    max-width: 800px;
+    height: 600px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+}
+
+.terminal-header {
+    background-color: var(--hacker-darker);
+    padding: 8px 15px;
+    border-bottom: 1px solid var(--hacker-green);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.terminal-title {
+    color: var(--hacker-green);
+    font-size: 0.9rem;
+}
+
+.terminal-controls span {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-left: 5px;
+    border: 1px solid var(--hacker-green);
+}
+
+.terminal-body {
+    padding: 15px;
+    height: calc(100% - 36px);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.command-line {
+    display: flex;
+    margin-bottom: 5px;
+}
+
+.prompt {
+    color: var(--hacker-green);
+    margin-right: 10px;
+    white-space: nowrap;
+}
+
+.input-line {
+    flex-grow: 1;
+    background: transparent;
+    border: none;
+    color: var(--hacker-green);
+    font-family: 'Hack', monospace;
+    outline: none;
+    caret-shape: block;
+}
+
+.output {
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.typewriter {
+    overflow: hidden;
+    border-right: 0.15em solid var(--hacker-green);
+    white-space: nowrap;
+    animation: 
+        typing 3.5s steps(40, end),
+        blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: var(--hacker-green) }
+}
+
+.matrix-fall {
+    position: absolute;
+    color: var(--hacker-green);
+    opacity: 0.1;
+    z-index: -1;
+    animation: matrixFall linear infinite;
+}
+
+@keyframes matrixFall {
+    0% { transform: translateY(-100vh) }
+    100% { transform: translateY(100vh) }
+}
+
+.game-container {
+    display: none;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.choices {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+.choice-btn {
+    background: transparent;
+    border: 1px solid var(--hacker-green);
+    color: var(--hacker-green);
+    padding: 10px;
+    font-family: 'Hack', monospace;
+    cursor: pointer;
+    transition: all 0.3s;
+    flex-basis: 30%;
+    margin-bottom: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.choice-btn:hover {
+    background: rgba(0, 255, 0, 0.1);
+    box-shadow: 0 0 10px var(--hacker-green);
+}
+
+.choice-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 255, 0, 0.2), transparent);
+    transition: 0.5s;
+}
+
+.choice-btn:hover::before {
+    left: 100%;
+}
+
+.result-container {
+    border: 1px solid var(--hacker-green);
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.scoreboard {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.score {
+    text-align: center;
+    flex-basis: 30%;
+    border: 1px solid var(--hacker-green);
+    padding: 10px;
+}
+
+.score h3 {
+    color: var(--hacker-light);
+    margin-bottom: 5px;
+    font-size: 0.8rem;
+}
+
+.score-value {
+    font-size: 1.2rem;
+    color: var(--hacker-green);
+}
+
+.reset-btn {
+    background: transparent;
+    border: 1px solid var(--hacker-red);
+    color: var(--hacker-red);
+    padding: 10px;
+    font-family: 'Hack', monospace;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 10px;
+}
+
+.reset-btn:hover {
+    background: rgba(255, 0, 51, 0.1);
+    box-shadow: 0 0 10px var(--hacker-red);
+}
+
+.glitch {
+    position: relative;
+}
+
+.glitch::before, .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--hacker-dark);
+}
+
+.glitch::before {
+    left: 2px;
+    text-shadow: -2px 0 var(--hacker-blue);
+    clip: rect(24px, 550px, 90px, 0);
+    animation: glitch-anim-1 2s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+    left: -2px;
+    text-shadow: -2px 0 var(--hacker-yellow);
+    clip: rect(85px, 550px, 140px, 0);
+    animation: glitch-anim-2 2s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim-1 {
+    0% { clip: rect(30px, 9999px, 90px, 0) }
+    20% { clip: rect(10px, 9999px, 65px, 0) }
+    40% { clip: rect(50px, 9999px, 100px, 0) }
+    60% { clip: rect(5px, 9999px, 75px, 0) }
+    80% { clip: rect(80px, 9999px, 120px, 0) }
+    100% { clip: rect(25px, 9999px, 85px, 0) }
+}
+
+@keyframes glitch-anim-2 {
+    0% { clip: rect(80px, 9999px, 140px, 0) }
+    20% { clip: rect(15px, 9999px, 50px, 0) }
+    40% { clip: rect(60px, 9999px, 110px, 0) }
+    60% { clip: rect(25px, 9999px, 70px, 0) }
+    80% { clip: rect(90px, 9999px, 130px, 0) }
+    100% { clip: rect(35px, 9999px, 95px, 0) }
+}
+
+/* Responsywność */
+@media (max-width: 768px) {
+    .choices {
+        flex-direction: column;
+    }
+    
+    .choice-btn {
+        flex-basis: 100%;
+        margin-bottom: 10px;
+    }
+    
+    .scoreboard {
+        flex-direction: column;
+    }
+    
+    .score {
+        margin-bottom: 10px;
+    }
+}

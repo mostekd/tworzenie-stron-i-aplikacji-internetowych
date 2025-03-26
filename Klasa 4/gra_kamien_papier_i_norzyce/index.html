@@ -1,74 +1,78 @@
 <!DOCTYPE html>
 <html lang="pl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>root@terminal:~# RPS_HACK</title>
-    <link rel="stylesheet" href="./style.css">
-</head>
-<body>
-    <div class="terminal">
-        <div class="terminal-header">
-            <div class="terminal-title">root@terminal:~# RPS_HACK</div>
-            <div class="terminal-controls">
-                <span style="background-color: var(--hacker-red);"></span>
-                <span style="background-color: var(--hacker-yellow);"></span>
-                <span style="background-color: var(--hacker-green);"></span>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>root@terminal:~# RPS_HACK</title>
+        <link rel="stylesheet" href="./style.css">
+    </head>
+    <body>
+        <div class="terminal">
+            <div class="terminal-header">
+                <div class="terminal-title">root@terminal:~# RPS_HACK</div>
+                <div class="terminal-controls">
+                    <span style="background-color: var(--hacker-red);"></span>
+                    <span style="background-color: var(--hacker-yellow);"></span>
+                    <span style="background-color: var(--hacker-green);"></span>
+                </div>
+            </div>
+            <div class="terminal-body" id="terminal-body">
+                <div class="output-columns">
+                    <div class="output-container" id="output-container">
+                        <div class="output">
+                            <div class="command-line">
+                                <span class="prompt">root@terminal:~#</span>
+                                <span class="typewriter">./start_rps_hack.sh</span>
+                            </div>
+                        </div>
+                        <div class="output">
+                            <div>> Initializing Rock-Paper-Scissors protocol...</div>
+                            <div>> Bypassing security layers...</div>
+                            <div>> Establishing connection to opponent...</div>
+                            <div>> Connection established with TARGET_AI</div>
+                            <div>> Ready for cyber duel</div>
+                        </div>
+                    </div>
+                    
+                    <div class="game-container" id="game-container">
+                        <div class="scoreboard">
+                            <div class="score">
+                                <h3>HACKER</h3>
+                                <div class="score-value" id="player-score">0</div>
+                            </div>
+                            <div class="score">
+                                <h3>TARGET_AI</h3>
+                                <div class="score-value" id="computer-score">0</div>
+                            </div>
+                            <div class="score">
+                                <h3>DRAWS</h3>
+                                <div class="score-value" id="draws">0</div>
+                            </div>
+                        </div>
+                        
+                        <div class="result-container" id="result-container">
+                            <div>> Select your attack vector:</div>
+                        </div>
+                        
+                        <div class="choices">
+                            <button class="choice-btn" id="rock">
+                                [1] ROCK_EXPLOIT
+                            </button>
+                            <button class="choice-btn" id="paper">
+                                [2] PAPER_VIRUS
+                            </button>
+                            <button class="choice-btn" id="scissors">
+                                [3] SCISSORS_WORM
+                            </button>
+                        </div>
+                        
+                        <button class="reset-btn" id="reset-btn">
+                            [0] TERMINATE_SESSION
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="terminal-body" id="terminal-body">
-            <div class="output">
-                <div class="command-line">
-                    <span class="prompt">root@terminal:~#</span>
-                    <span class="typewriter">./start_rps_hack.sh</span>
-                </div>
-            </div>
-            <div class="output">
-                <div>> Initializing Rock-Paper-Scissors protocol...</div>
-                <div>> Bypassing security layers...</div>
-                <div>> Establishing connection to opponent...</div>
-                <div>> Connection established with TARGET_AI</div>
-                <div>> Ready for cyber duel</div>
-            </div>
-            <div class="game-container" id="game-container">
-                <div class="scoreboard">
-                    <div class="score">
-                        <h3>HACKER</h3>
-                        <div class="score-value" id="player-score">0</div>
-                    </div>
-                    <div class="score">
-                        <h3>TARGET_AI</h3>
-                        <div class="score-value" id="computer-score">0</div>
-                    </div>
-                    <div class="score">
-                        <h3>DRAWS</h3>
-                        <div class="score-value" id="draws">0</div>
-                    </div>
-                </div>
-                
-                <div class="result-container" id="result-container">
-                    <div>> Select your attack vector:</div>
-                </div>
-                
-                <div class="choices">
-                    <button class="choice-btn" id="rock">
-                        [1] ROCK_EXPLOIT
-                    </button>
-                    <button class="choice-btn" id="paper">
-                        [2] PAPER_VIRUS
-                    </button>
-                    <button class="choice-btn" id="scissors">
-                        [3] SCISSORS_WORM
-                    </button>
-                </div>
-                
-                <button class="reset-btn" id="reset-btn">
-                    [0] TERMINATE_SESSION
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <script src="./script.js"></script>
-</body>
+        <script src="./script.js"></script>
+    </body>
 </html>

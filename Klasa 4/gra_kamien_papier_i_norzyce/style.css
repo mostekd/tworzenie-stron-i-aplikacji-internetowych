@@ -30,6 +30,7 @@ body {
     justify-content: center;
     align-items: center;
     padding: 20px;
+    overflow-y: hidden;
     overflow-x: hidden;
     position: relative;
 }
@@ -53,7 +54,7 @@ body::before {
     background-color: var(--hacker-dark);
     border: 1px solid var(--hacker-green);
     width: 100%;
-    max-width: 800px;
+    max-width: 1000px;
     height: 600px;
     overflow: hidden;
     position: relative;
@@ -86,9 +87,28 @@ body::before {
 .terminal-body {
     padding: 15px;
     height: calc(100% - 36px);
-    overflow-y: auto;
+    overflow: hidden;
     display: flex;
+}
+
+.output-columns {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    height: 100%;
+}
+
+.output-container {
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+.game-container {
+    flex: 1;
+    display: none;
     flex-direction: column;
+    overflow-y: auto;
 }
 
 .command-line {
@@ -142,17 +162,26 @@ body::before {
     opacity: 0.1;
     z-index: -1;
     animation: matrixFall linear infinite;
+    pointer-events: none;
 }
 
 @keyframes matrixFall {
-    0% { transform: translateY(-100vh) }
-    100% { transform: translateY(100vh) }
+    from {
+        transform: translateY(-100px) translateX(calc(var(--x-pos) * 1px));
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.8;
+    }
+    to {
+        transform: translateY(calc(100vh + 100px)) translateX(calc(var(--x-pos) * 1px));
+        opacity: 0;
+    }
 }
 
 .game-container {
     display: none;
     flex-direction: column;
-    margin-top: 20px;
 }
 
 .choices {
@@ -176,7 +205,7 @@ body::before {
     overflow: hidden;
 }
 
-.choice-btn:hover {
+.choice-btn:hover, .choice-btn.active {
     background: rgba(0, 255, 0, 0.1);
     box-shadow: 0 0 10px var(--hacker-green);
 }
@@ -288,8 +317,36 @@ body::before {
     100% { clip: rect(35px, 9999px, 95px, 0) }
 }
 
+/* Stylizacja scrollbara */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--hacker-darker);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--hacker-green);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #00cc00;
+}
+
 /* Responsywność */
 @media (max-width: 768px) {
+    .output-columns {
+        flex-direction: column;
+    }
+    
+    .output-container, .game-container {
+        flex: none;
+        width: 100%;
+    }
+    
     .choices {
         flex-direction: column;
     }

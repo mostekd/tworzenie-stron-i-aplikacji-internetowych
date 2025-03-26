@@ -1,19 +1,31 @@
-// Tworzenie efektu matrixa w tle
+// Poprawione tworzenie efektu Matrix
 function createMatrixEffect() {
     const chars = "01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン";
-    const terminal = document.querySelector('.terminal');
+    const container = document.querySelector('body');
+    const width = window.innerWidth;
+    const columns = Math.floor(width / 20); // Kolumna co 20px
     
-    for (let i = 0; i < 20; i++) {
+    // Usuń stare znaki Matrix
+    document.querySelectorAll('.matrix-fall').forEach(el => el.remove());
+    
+    // Utwórz nowe znaki Matrix
+    for (let i = 0; i < columns; i++) {
         const matrixChar = document.createElement('div');
         matrixChar.className = 'matrix-fall';
         matrixChar.textContent = chars.charAt(Math.floor(Math.random() * chars.length));
-        matrixChar.style.left = Math.random() * 100 + '%';
-        matrixChar.style.animationDuration = (Math.random() * 5 + 3) + 's';
-        matrixChar.style.animationDelay = (Math.random() * 3) + 's';
-        matrixChar.style.fontSize = (Math.random() * 10 + 10) + 'px';
-        terminal.appendChild(matrixChar);
+        matrixChar.style.setProperty('--x-pos', Math.random() * width);
+        matrixChar.style.left = `${(i * 20) + 10}px`;
+        matrixChar.style.animationDuration = `${Math.random() * 3 + 2}s`;
+        matrixChar.style.animationDelay = `${Math.random() * 5}s`;
+        matrixChar.style.fontSize = `${Math.random() * 10 + 10}px`;
+        container.appendChild(matrixChar);
     }
 }
+
+// Obsługa zdarzenia resize
+window.addEventListener('resize', () => {
+    createMatrixEffect();
+});
 
 document.addEventListener('DOMContentLoaded', function() {
     createMatrixEffect();
@@ -22,22 +34,27 @@ document.addEventListener('DOMContentLoaded', function() {
     setTimeout(() => {
         document.getElementById('game-container').style.display = 'flex';
         
-        const terminalBody = document.getElementById('terminal-body');
+        const outputContainer = document.getElementById('output-container');
         const newOutput = document.createElement('div');
         newOutput.className = 'output';
         newOutput.innerHTML = '<div>> Game interface initialized</div><div>> Type [1-3] to select attack or [0] to terminate</div>';
-        terminalBody.appendChild(newOutput);
-        terminalBody.scrollTop = terminalBody.scrollHeight;
+        outputContainer.appendChild(newOutput);
+        outputContainer.scrollTop = outputContainer.scrollHeight;
     }, 3500);
     
     // Elementy DOM
-    const buttons = document.querySelectorAll('.choice-btn');
+    const buttons = {
+        '1': document.getElementById('rock'),
+        '2': document.getElementById('paper'),
+        '3': document.getElementById('scissors'),
+        '0': document.getElementById('reset-btn')
+    };
+    
     const playerScoreEl = document.getElementById('player-score');
     const computerScoreEl = document.getElementById('computer-score');
     const drawsEl = document.getElementById('draws');
     const resultContainer = document.getElementById('result-container');
-    const terminalBody = document.getElementById('terminal-body');
-    const resetBtn = document.getElementById('reset-btn');
+    const outputContainer = document.getElementById('output-container');
     
     // Wiadomości w stylu hakerskim
     const hackerMessages = {
@@ -83,8 +100,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const output = document.createElement('div');
         output.className = 'output';
         output.innerHTML = `<div>${message}</div>`;
-        terminalBody.appendChild(output);
-        terminalBody.scrollTop = terminalBody.scrollHeight;
+        outputContainer.appendChild(output);
+        outputContainer.scrollTop = outputContainer.scrollHeight;
     }
     
     function getRandomHackerMessage(type) {
@@ -134,23 +151,47 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 1000);
     }
     
-    // Obsługa przycisków
-    buttons.forEach(button => {
-        button.addEventListener('click', function() {
-            const playerSelection = this.id;
+    // Obsługa przycisków i klawiatury
+    function handleUserInput(choice) {
+        if (choice === '0') {
+            // Reset gry
+            playerScore = 0;
+            computerScore = 0;
+            draws = 0;
+            updateScoreboard();
+            resultContainer.innerHTML = '<div>> Select your attack vector:</div>';
+            addTerminalOutput('> Session terminated. New session initialized.');
+            addTerminalOutput('> Ready for cyber duel');
+            return;
+        }
+        
+        const choices = {
+            '1': 'rock',
+            '2': 'paper',
+            '3': 'scissors'
+        };
+        
+        if (choices[choice]) {
+            const playerSelection = choices[choice];
             const computerSelection = computerPlay();
             playRound(playerSelection, computerSelection);
-        });
+            
+            // Wizualne podświetlenie przycisku
+            const btn = buttons[choice];
+            btn.classList.add('active');
+            setTimeout(() => btn.classList.remove('active'), 200);
+        }
+    }
+    
+    // Nasłuchiwanie kliknięć
+    Object.entries(buttons).forEach(([key, button]) => {
+        button.addEventListener('click', () => handleUserInput(key));
     });
     
-    // Reset gry
-    resetBtn.addEventListener('click', function() {
-        playerScore = 0;
-        computerScore = 0;
-        draws = 0;
-        updateScoreboard();
-        resultContainer.innerHTML = '<div>> Select your attack vector:</div>';
-        addTerminalOutput('> Session terminated. New session initialized.');
-        addTerminalOutput('> Ready for cyber duel');
+    // Nasłuchiwanie klawiatury
+    document.addEventListener('keydown', (e) => {
+        if (['1', '2', '3', '0'].includes(e.key)) {
+            handleUserInput(e.key);
+        }
     });
 });

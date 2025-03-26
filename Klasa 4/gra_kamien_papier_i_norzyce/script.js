@@ -3,12 +3,10 @@ function createMatrixEffect() {
     const chars = "01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン";
     const container = document.querySelector('body');
     const width = window.innerWidth;
-    const columns = Math.floor(width / 20); // Kolumna co 20px
+    const columns = Math.floor(width / 20);
     
-    // Usuń stare znaki Matrix
     document.querySelectorAll('.matrix-fall').forEach(el => el.remove());
     
-    // Utwórz nowe znaki Matrix
     for (let i = 0; i < columns; i++) {
         const matrixChar = document.createElement('div');
         matrixChar.className = 'matrix-fall';
@@ -22,13 +20,23 @@ function createMatrixEffect() {
     }
 }
 
-// Obsługa zdarzenia resize
+// Inicjalizacja dźwięków
+function initSounds() {
+    return {
+        attack: document.getElementById('sound-attack'),
+        win: document.getElementById('sound-win'),
+        lose: document.getElementById('sound-lose'),
+        draw: document.getElementById('sound-draw')
+    };
+}
+
 window.addEventListener('resize', () => {
     createMatrixEffect();
 });
 
 document.addEventListener('DOMContentLoaded', function() {
     createMatrixEffect();
+    const sounds = initSounds();
     
     // Symulacja ładowania terminala
     setTimeout(() => {
@@ -122,6 +130,10 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     function playRound(playerSelection, computerSelection) {
+        // Odtwórz dźwięk ataku
+        sounds.attack.currentTime = 0;
+        sounds.attack.play();
+        
         // Wyświetl wybór gracza
         addTerminalOutput(getRandomHackerMessage(playerSelection));
         
@@ -130,6 +142,9 @@ document.addEventListener('DOMContentLoaded', function() {
             addTerminalOutput(`> TARGET_AI responds with ${computerSelection.toUpperCase()}_ALGORITHM`);
             
             if (playerSelection === computerSelection) {
+                // Remis
+                sounds.draw.currentTime = 0;
+                sounds.draw.play();
                 draws++;
                 addTerminalOutput(getRandomHackerMessage('draw'));
                 resultContainer.innerHTML = '<div class="glitch" data-text=">> SYSTEM DRAW <<">>> SYSTEM DRAW <<</div>';
@@ -138,10 +153,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 (playerSelection === 'paper' && computerSelection === 'rock') ||
                 (playerSelection === 'scissors' && computerSelection === 'paper')
             ) {
+                // Wygrana
+                sounds.win.currentTime = 0;
+                sounds.win.play();
                 playerScore++;
                 addTerminalOutput(getRandomHackerMessage('win'));
                 resultContainer.innerHTML = '<div style="color: var(--hacker-green)">>> HACK SUCCESSFUL <<</div>';
             } else {
+                // Przegrana
+                sounds.lose.currentTime = 0;
+                sounds.lose.play();
                 computerScore++;
                 addTerminalOutput(getRandomHackerMessage('lose'));
                 resultContainer.innerHTML = '<div style="color: var(--hacker-red)">>> HACK FAILED <<</div>';

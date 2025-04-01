@@ -1,0 +1,21 @@
+-- Zapytanie 1: wybierające jedynie pola imie oraz nazwisko z tabeli matematycy dla matematyków, którzy urodzili się po roku 1700
+SELECT imie, nazwisko 
+FROM matematycy 
+WHERE rok_urodzenia > 1700;
+
+-- Zapytanie 2: wybierające jedynie pola id oraz nazwisko z tabeli matematycy dla matematyków, których liczba publikacji jest większa od 10 i mniejsza od 30
+SELECT id, nazwisko 
+FROM matematycy 
+WHERE liczba_publikacji > 10 AND liczba_publikacji < 30;
+
+-- Zapytanie 3: liczące łączną liczbę publikacji z tabeli matematycy dla matematyków, którzy urodzili się po roku 1750
+SELECT SUM(liczba_publikacji) AS laczna_liczba_publikacji 
+FROM matematycy 
+WHERE rok_urodzenia > 1750;
+
+-- Zapytanie 4: tworzące tabelę publikacje o polach id, tytul, rok
+CREATE TABLE publikacje (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    tytul TEXT,
+    rok INT
+);

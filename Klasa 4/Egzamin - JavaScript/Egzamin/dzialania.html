@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Działania matematyczne</title>
+    <link rel="stylesheet" href="styl.css">
+</head>
+<body>
+    <section id="baner1">
+        <img src="logo.jpg" alt="matematyka">
+    </section>
+    <section id="baner2">
+        <h1>Pomocnik Matematyczny</h1>
+    </section>
+    <section id="baner3">
+        <h4><a href="działania.html">Działania</a></h4>
+    </section>
+    <section id="baner4">
+        <h4><a href="mnozenie.html">Tabliczka mnożenia</a></h4>
+    </section>
+    
+    <section id="lewy">
+        <h3>Proste działania</h3>
+        <label>liczba A: <input type="number" id="liczbaA"></label><br>
+        <label>liczba B: <input type="number" id="liczbaB"></label><br>
+        <button onclick="oblicz('+')">+</button>
+        <button onclick="oblicz('-')">-</button>
+        <button onclick="oblicz('*')">*</button>
+        <button onclick="oblicz('/')">/</button>
+        <button onclick="oblicz('^')">A^B</button>
+        <div id="wynik"></div>
+    </section>
+    
+    <section id="prawy">
+        <ul>
+            <li>dodawanie</li>
+            <li>odejmowanie</li>
+            <li>mnożenie</li>
+            <li>dzielenie</li>
+            <li>potęgowanie</li>
+        </ul>
+    </section>
+    
+    <footer>
+        <p>Autor: [NUMER PESEL]</p>
+    </footer>
+    
+    <script src="skrypt.js"></script>
+</body>
+</html>

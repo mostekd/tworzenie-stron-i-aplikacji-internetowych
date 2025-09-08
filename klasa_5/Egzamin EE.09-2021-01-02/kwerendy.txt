@@ -1,0 +1,14 @@
+kw1:
+select imie, nazwisko from zawodnik where pozycja_id = 4;
+
+kw2:
+select zespol, punkty, grupa from liga orer by punkty desc;
+
+kw3:
+select z.id, z.nazwisko, p.nazwa 
+from zawodnik z 
+join pozycja p ON z.pozycja_id = p.id 
+where z.id IN (3, 5);
+
+kw4:
+delete from rozgrywka;

@@ -1,5 +1,5 @@
 -- 1. Utworzenie użytkownika
-CREATE USER 'w3schools_user'@'localhost' IDENTIFIED BY 'secure_password';
+CREATE USER 'w3schools_user'@'localhost' IDENTIFIED BY 'zaq1@WSX';
 
 -- 2. Nadanie dwóch uprawnień (SELECT i INSERT)
 GRANT SELECT, INSERT ON w3schools.* TO 'w3schools_user'@'localhost';

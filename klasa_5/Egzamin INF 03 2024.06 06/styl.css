@@ -31,11 +31,11 @@ footer {
     height: 300px;
     margin: 25px;
     padding: 16px;
-    display: inline-block;
+    float: left
 }
 
-#blok2, #blok3 {
-    display: none;
+.ukryty{
+    visibility: hidden;
 }
 
 p {

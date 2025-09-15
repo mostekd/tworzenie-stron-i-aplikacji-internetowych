@@ -7,13 +7,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const przycisk3 = document.getElementById('przycisk3');
     
     przycisk1.addEventListener('click', function() {
-        blok1.style.display = 'none';
-        blok2.style.display = 'inline-block';
+        blok1.classList.add('ukryty');
+        blok2.classList.remove('ukryty');
+        
     });
     
     przycisk2.addEventListener('click', function() {
-        blok2.style.display = 'none';
-        blok3.style.display = 'inline-block';
+        blok2.classList.add('ukryty');
+        blok3.classList.remove('ukryty');
     });
     
     przycisk3.addEventListener('click', function() {

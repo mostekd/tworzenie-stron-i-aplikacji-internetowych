@@ -1,0 +1,50 @@
+use firma;
+
+-- Wstawianie danych do tabeli dzialy
+INSERT INTO dzialy (nazwa_dzialu, lokalizacja) VALUES
+('IT', 'Warszawa'),
+('Finanse', 'Kraków'),
+('HR', 'Gdańsk'),
+('Marketing', 'Wrocław'),
+('Produkcja', 'Łódź'),
+('Sprzedaż', 'Poznań'),
+('Badania i Rozwój', 'Katowice'),
+('Logistyka', 'Szczecin'),
+('Kontrola Jakości', 'Bydgoszcz'),
+('Obsługa Klienta', 'Lublin'),
+('Administracja', 'Białystok'),
+('Zaopatrzenie', 'Gdynia'),
+('Public Relations', 'Częstochowa'),
+('Księgowość', 'Radom'),
+('Prawny', 'Sosnowiec'),
+('Techniczny', 'Toruń'),
+('Eksport', 'Kielce'),
+('Import', 'Rzeszów'),
+('Serwis', 'Olsztyn'),
+('Szkolenia', 'Zielona Góra');
+
+-- Wstawianie danych do tabeli pracownicy
+INSERT INTO pracownicy (imie, nazwisko, pensja, stanowisko, id_dzialu) VALUES
+('Jan', 'Kowalski', 8500.00, 'Programista', 1),
+('Anna', 'Nowak', 7200.00, 'Analityk', 1),
+('Piotr', 'Wiśniewski', 9500.00, 'Kierownik IT', 1),
+('Katarzyna', 'Wójcik', 6800.00, 'Tester', 1),
+('Marcin', 'Kowalczyk', 7800.00, 'DevOps', 1),
+('Agnieszka', 'Lewandowska', 9200.00, 'Kierownik Finansów', 2),
+('Tomasz', 'Kamiński', 6500.00, 'Księgowy', 2),
+('Magdalena', 'Zielińska', 5800.00, 'Analityk Finansowy', 2),
+('Robert', 'Szymański', 8200.00, 'Kierownik HR', 3),
+('Monika', 'Woźniak', 5400.00, 'Rekruter', 3),
+('Paweł', 'Dąbrowski', 8900.00, 'Kierownik Marketingu', 4),
+('Joanna', 'Kozłowska', 6100.00, 'Specjalista SEO', 4),
+('Michał', 'Jankowski', 7600.00, 'Kierownik Produkcji', 5),
+('Ewa', 'Mazur', 5200.00, 'Operator', 5),
+('Krzysztof', 'Kwiatkowski', 9300.00, 'Kierownik Sprzedaży', 6),
+('Barbara', 'Grabowska', 6700.00, 'Przedstawiciel Handlowy', 6),
+('Andrzej', 'Pawlak', 10500.00, 'Dyrektor B+R', 7),
+('Halina', 'Michalska', 7200.00, 'Inżynier', 7),
+('Stanisław', 'Nowicki', 5800.00, 'Logistyk', 8),
+('Irena', 'Adamczyk', 4900.00, 'Magazynier', 8),
+('Adam', 'Kierownicki', 4500.00, 'Kierownik Działu', 10),
+('Ewa', 'Zarządzająca', 3800.00, 'Kierownik Projektu', 11),
+('Marek', 'Szefowski', 4200.00, 'Kierownik Zmiany', 12);

@@ -28,3 +28,10 @@ create table produkt_zamowienie (
     foreign key (zamowienie_id) references zamowienie(zamowienie_id),
     foreign key (produkt_id) references produkt(produkt_id)
 );
+
+create table platnosc (
+    platnosc_id int auto_increment primary key,
+    zamowienie_id int not null,
+    metoda VARCHAR(50) not null,
+    status VARCHAR(20) not null
+);

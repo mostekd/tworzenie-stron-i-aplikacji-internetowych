@@ -1,4 +1,3 @@
--- tworzenie bazy danych i tabel
 create database if not exists baza_relacje;
 use baza_relacje;
 

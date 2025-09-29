@@ -17,7 +17,6 @@
 
         <div id="main1">
             <?php
-                // Skrypt #1
                 $sql = "SELECT model, rocznik, przebieg, paliwo, cena, zdjecie FROM samochody WHERE id=10;";
                 $result = $conn->query(query: $sql);
                 while($row = $result -> fetch_array()) {
@@ -32,7 +31,6 @@
         <div id="main2">
             <h2>Oferty Wyróżnione</h2>
             <?php
-                // Skrypt #2
                 $sql = "SELECT nazwa, model, rocznik, cena, zdjecie FROM samochody JOIN marki ON marki_id = marki.id WHERE wyrozniony=1 LIMIT 4;";
                 $result = $conn->query(query: $sql);
                 while($row = $result -> fetch_array()) {
@@ -51,7 +49,6 @@
             <form action="KupAuto.php" method="post">
                 <select name="lista" id="lista">
                     <?php
-                        // Skrypt #3
                         $sql = "SELECT nazwa FROM marki;";
                         $result = $conn->query(query: $sql);
                         while($row = $result -> fetch_array()) {
@@ -62,7 +59,6 @@
                 <button type="submit">Wyszukaj</button>
             </form>
             <?php
-                // Skrypt #4
                 if(isset($_POST['lista'])) {
                     $model = $_POST['lista'];
                     $sql = "SELECT model, cena, zdjecie FROM samochody JOIN marki ON marki_id = marki.id WHERE nazwa = '$model';";
@@ -79,7 +75,7 @@
         </div>
 
         <footer>
-            <p>Stronę wykonał: <a href="https://ee-informatyk.pl/" target="_blank" style="text-decoration: none;color: unset;">EE-Informatyk.pl</a></p>
+            <p>Stronę wykonał: Dawid Mostowski</p>
             <p><a href="http://firmy.pl/komis">Znajdź nas także</a></p>
         </footer>
     </body>

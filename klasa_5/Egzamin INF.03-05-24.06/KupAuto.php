@@ -1,5 +1,5 @@
 <?php
-    $conn = new mysqli(hostname: "localhost",username: "root",password: "",database: "kupauto");
+    $conn = new mysqli("localhost","root","","kupauto");
 ?>
 
 <!DOCTYPE html>
@@ -18,7 +18,7 @@
         <div id="main1">
             <?php
                 $sql = "SELECT model, rocznik, przebieg, paliwo, cena, zdjecie FROM samochody WHERE id=10;";
-                $result = $conn->query(query: $sql);
+                $result = $conn->query($sql);
                 while($row = $result -> fetch_array()) {
                     echo "<img src='$row[5]' alt='oferta dnia'>";
                     echo "<h4>Oferta Dnia: Toyota $row[0]</h4>";
@@ -32,7 +32,7 @@
             <h2>Oferty Wyróżnione</h2>
             <?php
                 $sql = "SELECT nazwa, model, rocznik, cena, zdjecie FROM samochody JOIN marki ON marki_id = marki.id WHERE wyrozniony=1 LIMIT 4;";
-                $result = $conn->query(query: $sql);
+                $result = $conn->query($sql);
                 while($row = $result -> fetch_array()) {
                     echo "<div>";
                         echo "<img src='$row[4]' alt='$row[1]'>";
@@ -50,7 +50,7 @@
                 <select name="lista" id="lista">
                     <?php
                         $sql = "SELECT nazwa FROM marki;";
-                        $result = $conn->query(query: $sql);
+                        $result = $conn->query($sql);
                         while($row = $result -> fetch_array()) {
                             echo "<option value='$row[0]'>$row[0]</option>";
                         }
@@ -62,7 +62,7 @@
                 if(isset($_POST['lista'])) {
                     $model = $_POST['lista'];
                     $sql = "SELECT model, cena, zdjecie FROM samochody JOIN marki ON marki_id = marki.id WHERE nazwa = '$model';";
-                    $result = $conn->query(query: $sql);
+                    $result = $conn->query( $sql);
                     while($row = $result -> fetch_array()) {
                         echo "<div>";
                             echo "<img src='$row[2]' alt='$row[0]'>";

@@ -1,0 +1,21 @@
+<script>
+  var liczba = 0; // ustala zmienną liczba na 0
+  liczba = document.getElementById('pole').value; //ustawia zmienną liczba na wartość podaną w polu 'pole'
+  var polewynik=document.getElementById('wynik'); //ustawia zmienną wynik na pole 'wynik'
+  
+  var binarna = ''; //ustawia binarna na pustą
+  while(liczba!=0){ //sprawdza czy liczba jest różna od 0
+    binarna+=liczba%2; //dodaje do pustej zmiennej binarna restę z dzielenia wartośći zmiennej liczba
+    liczba=Math.floor(liczba/2); // wyciąga całości z liczby (ścina wszystko co jest po przecinku) oraz dzieli przez 2
+  }
+  
+  var binarnyzspacja=''; //zmienna binarnyzspacja ustawiona na pustą
+  for(i=binarna.lenght-1;i>=0;i--){ //petla która ustawia i na długość liczby podanej w binarna i odejmuje 1, sprawdza czy i jest większe bądź równe 0, zmniejsza index o 1
+    binarnyzspacja+=binarna(i); // dodaje do binarnyzspacja index z zmiennej binarna
+    if(i%4==0){ //odwraca skrypt, jeżeli index jest podzielny przez 4 to zrobi tam spację
+      binarnyzspacja=' '; //dodaje spacje
+    }
+  }
+  
+  polewynik=innerHTML=binarnyzspacja; //wyświetla wynik w polu wynik
+</script>

@@ -1,6 +1,6 @@
-drop database if exists wbudowanefunkcjemsql;
-create database wbudowanefunkcjemsql;
-use wbudowanefunkcjemsql;
+drop database if exists wbudowanefunkcjemysql;
+create database wbudowanefunkcjemysql;
+use wbudowanefunkcjemysql;
 
 create table klienci (
     id int primary key auto_increment,

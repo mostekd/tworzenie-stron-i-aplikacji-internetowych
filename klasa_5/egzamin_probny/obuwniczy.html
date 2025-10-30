@@ -1,1 +1,57 @@
-
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twoje buty są u nas</title>
+    <link rel="stylesheet" href="styl_1.css">
+</head>
+<body>
+    <header>
+        <h1>Znajdziesz tutaj buty "jak z bajki"</h1>
+    </header>
+    <aside>
+        <img src="./but1.jpg" alt="but1">
+        <img src="./but2.jpg" alt="but2">
+        <img src="./but3.jpg" alt="but3">
+        <img src="./but4.jpg" alt="but4">
+    </aside>
+    <main>
+        <h4>"Nasze buty są dobre na:"</h4>
+        <ul>
+            <li>pogodę</li>
+            <li>niepogodę</li>
+            <li>sport</li>
+            <li>spacery</li>
+            <li>i wszystko pozostałe</li>
+        </ul>
+    </main>
+    <section>
+        <form action="obuwniczy.html">
+            <label for="imie:">Imię:</label>
+            <input type="text" name="imie" value="Wpisz imię:">
+            <label for="nazwisko">Nazwisko:</label>
+            <input type="text" name="nazwisko" value="Wpisz nazwisko:">
+            <label for="telefon">Telefon:</label>
+            <input type="tel" name="telefon" value="Wpisz telefon">
+            <label for="edycja"></label>
+            <input type="radio" name="sportowe" value="sportowe">
+            <input type="radio" name="do_chodzenia" value="do chodzenia">
+            <input type="radio" name="relaksujace" value="relaksujące">
+            <input type="reset" value="Wyczyść">
+            <input type="submit" id="przeslij" value="Prześlij">
+        </form>
+    </section>
+    <section id="infobox">
+        <p>Twoje imię: <span id="spanimie"></span></p>
+        <p>Twoje nazwisko: <span id="spannazwisko"></span></p>
+        <p>Twój telefon: <span id="spantelefon"></span></p>
+        <p>Twoje preferencje: <span id="spanpref"></span></p>
+        <p>Skontaktujemy się z Tobą!</p>
+        <button>Zamknij</button>
+    </section>
+    <footer>
+        Stronę internetową opracował: 5A 11
+    </footer>
+</body>
+</html>

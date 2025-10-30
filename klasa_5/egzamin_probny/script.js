@@ -1,0 +1,1 @@
+var przeslij = document.getElementById('przeslij');

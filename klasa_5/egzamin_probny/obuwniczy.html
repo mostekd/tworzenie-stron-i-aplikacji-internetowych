@@ -27,17 +27,20 @@
         </ul>
     </main>
     <section>
-        <form action="obuwniczy.html">
+        <form action="wyswietl.php" method="post">
             <label for="imie:">Imię:</label>
-            <input type="text" name="imie" value="Wpisz imię:">
+            <input type="text" name="imie" placeholder="Wpisz imię:">
             <label for="nazwisko">Nazwisko:</label>
-            <input type="text" name="nazwisko" value="Wpisz nazwisko:">
+            <input type="text" name="nazwisko" placeholder="Wpisz nazwisko:">
             <label for="telefon">Telefon:</label>
-            <input type="tel" name="telefon" value="Wpisz telefon">
+            <input type="tel" name="telefon" placeholder="Wpisz telefon">
             <label for="edycja"></label>
-            <input type="radio" name="sportowe" value="sportowe">
-            <input type="radio" name="do_chodzenia" value="do chodzenia">
-            <input type="radio" name="relaksujace" value="relaksujące">
+            <input type="radio" name="preferencje" value="sportowe" id="pref_sportowe">
+            <label for="pref_sportowe">sportowe</label>
+            <input type="radio" name="preferencje" value="do_chodzenia" id="pref_do_chodzenia">
+            <label for="pref_do_chodzenia">do chodzenia</label>
+            <input type="radio" name="preferencje" value="relaksujace" id="pref_relaksujace">
+            <label for="pref_relaksujace">relaksujące</label>
             <input type="reset" value="Wyczyść">
             <input type="submit" id="przeslij" value="Prześlij">
         </form>

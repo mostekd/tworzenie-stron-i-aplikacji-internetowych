@@ -70,7 +70,7 @@
         </div>
 
         <footer>
-            <p>Projekt strony: <a href="https://ee-informatyk.pl/" target="_blank" style="text-decoration: none;color: #fff;font-weight:bold;">EE-Informatyk.pl</a></p>
+            <p>Projekt strony: Dawid Mostowski</p>
         </footer>
     </body>
 </html>
